@@ -1,0 +1,27 @@
+.pre-header
+  .container
+    .row
+      / BEGIN TOP BAR LEFT PART
+      .col-md-6.col-sm-6.additional-shop-info
+        %ul.list-unstyled.list-inline
+          %li
+            %i.fa.fa-phone
+            %span +1 456 6717
+      .col-md-6.col-sm-6.additional-nav
+        %ul.list-unstyled.list-inline.pull-right
+          %li
+            City
+            %select
+              %option{:value=>"vadodara"} Vadodara
+              %option{:value=>"ahm"} Ahm
+              %option{:value=>"surat"} Surat
+          %li
+            %a{:href => "#"} My Account
+          %li
+            %a{:href => "checkout.html"} Checkout
+          - if user_signed_in?
+            %li
+              = link_to "Sign out", destroy_user_session_path, :method => :delete
+          - else
+            %li
+              %a{:href => "/users/sign_in"} Log In

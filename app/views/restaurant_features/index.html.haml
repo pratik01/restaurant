@@ -1,0 +1,16 @@
+.container
+  %h1 Listing restaurant_features
+  = link_to 'New Restaurant feature', new_restaurant_feature_path
+  %table.table
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+    - @restaurant_features.each do |restaurant_feature|
+      %tr
+        %td= restaurant_feature.name
+        %td= link_to 'Show', restaurant_feature
+        %td= link_to 'Edit', edit_restaurant_feature_path(restaurant_feature),"no-data-turbolink"=>true
+        %td= link_to 'Destroy', restaurant_feature, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -1,0 +1,138 @@
+/ BEGIN HEADER
+.navbar.header.no-margin{:role => "navigation","data-no-turbolink"=>true}
+  .container
+    .navbar-header
+      / BEGIN RESPONSIVE MENU TOGGLER
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      / END RESPONSIVE MENU TOGGLER
+      %a.navbar-brand{:href => "/"}
+        BMT
+    / LOGO
+    / BEGIN CART
+    .cart-block
+      .cart-info
+        %a.cart-info-count{:href => "javascript:void(0);"} 3 items
+        %a.cart-info-value{:href => "javascript:void(0);"} $1260
+      %i.fa.fa-shopping-cart
+      / BEGIN CART CONTENT
+      .cart-content-wrapper
+        .cart-content
+          %ul.scroller{:style => "height: 250px;"}
+            %li
+              %a{:href => "item.html"}
+                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
+              %span.cart-content-count x 1
+              %strong
+                %a{:href => "item.html"} Rolex Classic Watch
+              %em $1230
+              %a.del-goods{:href => "javascript:void(0);"}
+                %i.fa.fa-times
+            %li
+              %a{:href => "item.html"}
+                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
+              %span.cart-content-count x 1
+              %strong
+                %a{:href => "item.html"} Rolex Classic Watch
+              %em $1230
+              %a.del-goods{:href => "javascript:void(0);"}
+                %i.fa.fa-times
+            %li
+              %a{:href => "item.html"}
+                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
+              %span.cart-content-count x 1
+              %strong
+                %a{:href => "item.html"} Rolex Classic Watch
+              %em $1230
+              %a.del-goods{:href => "javascript:void(0);"}
+                %i.fa.fa-times
+            %li
+              %a{:href => "item.html"}
+                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
+              %span.cart-content-count x 1
+              %strong
+                %a{:href => "item.html"} Rolex Classic Watch
+              %em $1230
+              %a.del-goods{:href => "javascript:void(0);"}
+                %i.fa.fa-times
+            %li
+              %a{:href => "item.html"}
+                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
+              %span.cart-content-count x 1
+              %strong
+                %a{:href => "item.html"} Rolex Classic Watch
+              %em $1230
+              %a.del-goods{:href => "javascript:void(0);"}
+                %i.fa.fa-times
+            %li
+              %a{:href => "item.html"}
+                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
+              %span.cart-content-count x 1
+              %strong
+                %a{:href => "item.html"} Rolex Classic Watch
+              %em $1230
+              %a.del-goods{:href => "javascript:void(0);"}
+                %i.fa.fa-times
+            %li
+              %a{:href => "item.html"}
+                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
+              %span.cart-content-count x 1
+              %strong
+                %a{:href => "item.html"} Rolex Classic Watch
+              %em $1230
+              %a.del-goods{:href => "javascript:void(0);"}
+                %i.fa.fa-times
+            %li
+              %a{:href => "item.html"}
+                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
+              %span.cart-content-count x 1
+              %strong
+                %a{:href => "item.html"} Rolex Classic Watch
+              %em $1230
+              %a.del-goods{:href => "javascript:void(0);"}
+                %i.fa.fa-times
+          .text-right
+            %a.btn.btn-default{:href => "shopping-cart.html"} View Cart
+            %a.btn.btn-primary{:href => "checkout.html"} Checkout
+    / END CART CONTENT
+    / END CART
+    / BEGIN NAVIGATION
+    .collapse.navbar-collapse.mega-menu
+      %ul.nav.navbar-nav
+        %li.dropdown
+          %a.dropdown-toggle{"data-close-others" => "false", "data-delay" => "0", "data-target" => "#", "data-toggle" => "dropdown", :href => "#"}
+            Settings
+            %i.fa.fa-angle-down
+          / BEGIN DROPDOWN MENU
+          %ul.dropdown-menu
+            %li
+              %a{:href => "/restaurants"} Restaurant
+            %li
+              %a{:href => "/restaurant_features/new"} Add Restaurant Features
+            %li
+              %a{:href=>"/amenitis"} Restaurant Amenitis
+            %li
+              %a{:href=>"/tables"} Table
+        %li.dropdown
+          %a.dropdown-toggle{"data-close-others" => "false", "data-delay" => "0", "data-target" => "#", "data-toggle" => "dropdown", :href => "#"}
+            Menu
+          %ul.dropdown-menu
+            %li
+              %a{:href=>"/menus"}
+                Menus
+              %a{:href=>"/cuisines"}
+                Cuisines
+              %a{:href=>"/items"}
+                Item
+        %li.menu-search
+          %span.sep
+          %i.fa.fa-search.search-btn
+          .search-box
+            %form{:action => "#"}
+              .input-group
+                %input.form-control{:placeholder => "Search", :type => "text"}
+                  %span.input-group-btn
+                    %button.btn.btn-primary{:type => "submit"} Search

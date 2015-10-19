@@ -1,0 +1,16 @@
+.row
+  = form_for @restaurant_feature do |f|
+    - if @restaurant_feature.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@restaurant_feature.errors.count, "error")} prohibited this restaurant_feature from being saved:"
+        %ul
+          - @restaurant_feature.errors.full_messages.each do |msg|
+            %li= msg
+
+    .col-md-12
+      = render :partial => "components/text_field",:locals => {:f=>f,:n=>"name",:c=>"required",:txtLabel=>"Features Name"}
+      .form-group
+        %label Description
+        = render :partial => "components/text_area_editor",:locals => {:n=>"description",:f=>f}
+    .actions
+      = f.submit 'Save',:class=>"btn btn-primary"

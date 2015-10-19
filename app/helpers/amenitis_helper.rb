@@ -1,0 +1,2 @@
+module AmenitisHelper
+end

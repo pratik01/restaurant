@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @cuisine.name
+%p
+  %b Cuisine type:
+  = @cuisine.cuisine_type
+%p
+  %b Description:
+  = @cuisine.description
+%p
+  %b Status:
+  = @cuisine.status
+
+= link_to 'Edit', edit_cuisine_path(@cuisine)
+\|
+= link_to 'Back', cuisines_path

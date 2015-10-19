@@ -1,8 +1,26 @@
-Restaurant::Application.routes.draw do
+Myrestaurant::Application.routes.draw do
+
+  resources :tables
+
+  resources :amenitis
+
+  resources :items
+
+  resources :cuisines
+
+  root "home#index"
+  resources :banquet_halls
+
+  resources :restaurant_features
+
+  resources :restaurants
+
   resources :customers
 
   devise_for :users
-  get "home/index"
+
+  resources :menus
+  TheRoleManagementPanel::Routes.mixin(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

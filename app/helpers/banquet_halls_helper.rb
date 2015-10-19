@@ -1,0 +1,2 @@
+module BanquetHallsHelper
+end

@@ -1,0 +1,6 @@
+.form-group
+  %label
+    =txtLabel
+    - if c=="required"
+      %span.require *
+  = f.file_field n,:class=>"form-control"

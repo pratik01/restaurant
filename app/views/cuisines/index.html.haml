@@ -1,0 +1,43 @@
+.container
+  %h1 Listing cuisines
+  = link_to 'New Cuisine', new_cuisine_path
+  %table.table
+    %tr
+      %th Image
+      %th Name
+      %th Cuisine type
+      %th About
+      %th Status
+      %th
+      %th
+      %th
+
+    - @cuisines.each do |cuisine|
+      - if cuisine.status==true
+        %tr.success
+          %td
+            %img{:src=>"#{cuisine.image.to_s}",:style=>"height:80px;width:80px;"}
+          %td= cuisine.name
+          %td= cuisine.cuisine_type
+          %td= cuisine.description
+          %td= cuisine.status
+          %td= link_to 'Show', cuisine
+          %td= link_to 'Edit', edit_cuisine_path(cuisine)
+          %td= link_to 'Destroy', cuisine, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - else
+        %tr.danger
+          %td
+            %img{:src=>"#{cuisine.image.to_s}",:style=>"height:80px;width:80px;"}
+          %td= cuisine.name
+          %td= cuisine.cuisine_type
+          %td= cuisine.description
+          %td= cuisine.status
+          %td= link_to 'Show', cuisine
+          %td= link_to 'Edit', edit_cuisine_path(cuisine)
+          %td= link_to 'Destroy', cuisine, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+
+
+
+

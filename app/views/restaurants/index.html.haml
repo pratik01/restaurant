@@ -1,0 +1,51 @@
+.main
+  .container
+    %ul.breadcrumb
+      %li
+        %a{:href => "index.html"} Home
+      %li.active Restaurants
+    / BEGIN SIDEBAR &amp; CONTENT
+    .row.margin-bottom-40
+      / BEGIN SIDEBAR
+      .col-md-12.col-sm-12
+        .row.list-view-sorting.clearfix
+          .col-md-2.col-sm-2
+            %a{:href=>"/restaurants/new"} Add New
+          .col-md-10.col-sm-10
+            .pull-right
+              %label.control-label Sort&nbsp;By:
+              %select.form-control.input-sm
+                %option{:selected => "selected", :value => "#?sort=p.sort_order&amp;order=ASC"} Default
+                %option{:value => "#?sort=pd.name&amp;order=ASC"} Name (A - Z)
+                %option{:value => "#?sort=pd.name&amp;order=DESC"} Name (Z - A)
+                %option{:value => "#?sort=rating&amp;order=DESC"} Rating (Highest)
+                %option{:value => "#?sort=rating&amp;order=ASC"} Rating (Lowest)
+        / BEGIN PRODUCT LIST
+        .row.product-list
+          - @restaurants.each do |r|
+            .col-md-4.col-sm-6.col-xs-12
+              .product-item{:style=>"height:400px;"}
+                .pi-img-wrapper
+                  %img.img-responsive{:src => "#{r.logo.to_s}",:style=>"height:230px;width:100%;"}
+                    %div
+                      %a.btn.btn-default.fancybox-button{:href => "#{r.logo.to_s}"} Zoom
+                %h3
+                  %a{:href => "item.html"}
+                    = r.name
+                .pi-price
+                  = r.address1
+                  = r.address2
+                  = r.state
+                  = r.city
+                .h-10{:style=>"height:10px;clear:both;"}
+                %a.btn.btn-default.add2cart{:href => "#"} Book
+                %a.btn.btn-default.add2cart{:href => "/restaurants/#{r.id}"} View More
+:javascript
+  jQuery(document).ready(function() {
+        App.init();
+        App.initBxSlider();
+        App.initImageZoom();
+        App.initSliderRange();
+        App.initUniform();
+        App.initTouchspin();
+  });

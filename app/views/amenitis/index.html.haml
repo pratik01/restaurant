@@ -1,0 +1,16 @@
+.container
+  = link_to 'New Ameniti', new_ameniti_path
+  %h1 Listing amenitis
+  %table.table
+    %tr
+      %th Name
+      %th
+      %th
+
+    - @amenitis.each do |ameniti|
+      %tr
+        %td= link_to 'Show', ameniti
+        %td= link_to 'Edit', edit_ameniti_path(ameniti)
+        %td= link_to 'Destroy', ameniti, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+

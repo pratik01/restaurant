@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Capacity of guest:
+  = @banquet_hall.capacity_of_guest
+%p
+  %b Category:
+  = @banquet_hall.category
+%p
+  %b Price:
+  = @banquet_hall.price
+%p
+  %b Description:
+  = @banquet_hall.description
+
+= link_to 'Edit', edit_banquet_hall_path(@banquet_hall)
+\|
+= link_to 'Back', banquet_halls_path

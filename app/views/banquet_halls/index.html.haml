@@ -1,0 +1,25 @@
+%h1 Listing banquet_halls
+
+%table
+  %tr
+    %th Capacity of guest
+    %th Category
+    %th Price
+    %th Description
+    %th
+    %th
+    %th
+
+  - @banquet_halls.each do |banquet_hall|
+    %tr
+      %td= banquet_hall.capacity_of_guest
+      %td= banquet_hall.category
+      %td= banquet_hall.price
+      %td= banquet_hall.description
+      %td= link_to 'Show', banquet_hall
+      %td= link_to 'Edit', edit_banquet_hall_path(banquet_hall)
+      %td= link_to 'Destroy', banquet_hall, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Banquet hall', new_banquet_hall_path

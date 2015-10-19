@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  capacity_of_guest: 1
+  category: MyString
+  price: 1.5
+  description: MyString
+
+two:
+  capacity_of_guest: 1
+  category: MyString
+  price: 1.5
+  description: MyString

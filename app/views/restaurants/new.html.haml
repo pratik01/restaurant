@@ -1,0 +1,11 @@
+.main
+  .container
+    %ul.breadcrumb
+      %li
+        %a{:href => "/"} Home
+      %li.active Add Restaurant
+    .row.margin-bottom-40
+      .col-md-12.col-sm-12
+        %h1 Add Restaurant
+        .content-form-page
+          = render 'form'

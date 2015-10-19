@@ -1,0 +1,22 @@
+.container
+  %h1 Listing tables
+  = link_to 'New Table', new_table_path
+  %table.table
+    %tr
+      %th Code
+      %th Capacity
+      %th
+      %th
+      %th
+
+    - @tables.each do |table|
+      %tr
+        %td= table.code
+        %td= table.capacity
+        %td= link_to 'Show', table
+        %td= link_to 'Edit', edit_table_path(table)
+        %td= link_to 'Destroy', table, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+
+

@@ -1,0 +1,12 @@
+.jqte_tool_label{
+    height:25px !important;
+}
+.jqte{
+    margin-top: 0px !important;
+}
+.jqte_editor, .jqte_source {
+    min-height:200px !important;
+}
+.body{
+    background-color: dimgray !important;
+}

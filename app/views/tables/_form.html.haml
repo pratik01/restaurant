@@ -1,0 +1,17 @@
+= form_for @table do |f|
+  - if @table.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@table.errors.count, "error")} prohibited this table from being saved:"
+      %ul
+        - @table.errors.full_messages.each do |msg|
+          %li= msg
+  .row
+    .col-md-12
+      = render :partial => "components/restaurant_select_box",:locals => {:f=>f,:n=>"restaurant_id",:data=>@restaurants}
+    .col-md-6
+      = render :partial => "components/text_field" ,:locals => {:f=>f,:n=>"code",:txtLabel=>"Table No",:c=>""}
+    .col-md-6
+      = render :partial => "components/number_field" ,:locals => {:f=>f,:n=>"capacity",:txtLabel=>"Max no of seat",:c=>""}
+    .col-md-12
+      = f.submit 'Save',:class=>"btn btn-primary"
+      = link_to 'Back', tables_path,:class=>"btn btn-default"

@@ -1,0 +1,22 @@
+= form_for @banquet_hall do |f|
+  - if @banquet_hall.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@banquet_hall.errors.count, "error")} prohibited this banquet_hall from being saved:"
+      %ul
+        - @banquet_hall.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :capacity_of_guest
+    = f.number_field :capacity_of_guest
+  .field
+    = f.label :category
+    = f.text_field :category
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    = f.label :description
+    = f.text_field :description
+  .actions
+    = f.submit 'Save'

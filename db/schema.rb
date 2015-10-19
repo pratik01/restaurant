@@ -11,16 +11,116 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928112409) do
+ActiveRecord::Schema.define(version: 20151019093309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "amenitis", force: true do |t|
+    t.integer  "restaurant_id"
+    t.integer  "restaurant_feature_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "restaurant_features"
+  end
+
+  create_table "banquet_halls", force: true do |t|
+    t.integer  "capacity_of_guest"
+    t.string   "category"
+    t.float    "price"
+    t.string   "description"
+    t.integer  "restaurant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cuisines", force: true do |t|
+    t.string   "name"
+    t.string   "cuisine_type"
+    t.text     "description"
+    t.boolean  "status"
+    t.integer  "restaurant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
+    t.boolean  "is_veg"
+    t.boolean  "is_nonveg"
+    t.boolean  "is_swaminarayan"
+    t.boolean  "is_jain"
+    t.float    "price"
+    t.boolean  "is_subcategory"
+  end
+
+  create_table "customers", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "contact1"
+    t.string   "contact2"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "country"
+    t.string   "state"
+    t.string   "city"
+    t.string   "zip_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: true do |t|
+    t.string   "name"
+    t.float    "price"
+    t.text     "description"
+    t.boolean  "status"
+    t.integer  "cuisine_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
+    t.boolean  "is_veg"
+    t.boolean  "is_nonveg"
+    t.boolean  "is_swaminarayan"
+    t.boolean  "is_jain"
+  end
+
+  create_table "restaurant_features", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "restaurants", force: true do |t|
+    t.string   "name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "country"
+    t.string   "state"
+    t.string   "city"
+    t.string   "zip_code"
+    t.text     "description"
+    t.string   "contact1"
+    t.string   "contact2"
+    t.string   "logo"
+    t.boolean  "is_active"
+    t.date     "resister_date"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "roles", force: true do |t|
     t.string   "name",        null: false
     t.string   "title",       null: false
     t.text     "description", null: false
     t.text     "the_role",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tables", force: true do |t|
+    t.string   "code"
+    t.integer  "capacity"
+    t.integer  "restaurant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Code:
+  = @table.code
+%p
+  %b Capacity:
+  = @table.capacity
+
+= link_to 'Edit', edit_table_path(@table)
+\|
+= link_to 'Back', tables_path

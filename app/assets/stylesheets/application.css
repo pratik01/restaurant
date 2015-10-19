@@ -9,5 +9,16 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require font-awesome
+ *= require bootstrap
+ *= require jquery-fancybox
+ *= require jquery-bxslider
+ *= require rateit
+ *= require layerslider
+ *= require style-metronic
+ *= require style
+ *= require style-responsive
+ *= require custom
+ *= require jquery-te
  *= require_tree .
  */

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  cuisine_type: MyString
+  description: MyText
+  status: false
+
+two:
+  name: MyString
+  cuisine_type: MyString
+  description: MyText
+  status: false

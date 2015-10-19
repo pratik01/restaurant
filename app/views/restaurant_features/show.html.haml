@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @restaurant_feature.name
+%p
+  %b Description:
+  = @restaurant_feature.description
+
+= link_to 'Edit', edit_restaurant_feature_path(@restaurant_feature)
+\|
+= link_to 'Back', restaurant_features_path

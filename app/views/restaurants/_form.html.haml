@@ -1,0 +1,36 @@
+.row
+  = form_for @restaurant do |f|
+    .col-md-6.col-sm-6{:style=>"padding:15px;"}
+      %fieldset
+        %legend Restaurant Details
+        .col-md-12
+          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"name",:c=>"required",:txtLabel=>"Name"}
+          = render :partial => "components/file_field",:locals => {:f=>f,:n=>"logo",:c=>"",:txtLabel=>"Upload Logo"}
+          .form-group
+            %label
+              Register Date
+            = f.text_field :resister_date,:class=>"form-control"
+          .checkbox
+            %label
+              = f.check_box :is_active
+              Active
+    .col-md-6.col-sm-6{:style=>"padding:15px;"}
+      %fieldset
+        %legend Address Details
+        .col-md-12
+          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"address1",:c=>"",:txtLabel=>"Address 1"}
+          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"address2",:c=>"",:txtLabel=>"Address 2"}
+          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"state",:c=>"",:txtLabel=>"State"}
+        .col-md-6
+          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"city",:c=>"",:txtLabel=>"City"}
+        .col-md-6
+          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"zip_code",:c=>"",:txtLabel=>"Zip Code"}
+    .col-md-12
+      %fieldset
+        %legend About Restaurant
+        .col-md-12
+          = render :partial => "components/text_area_editor",:locals => {:f=>f,:n=>"description"}
+    .row
+      .col-md-12{:style=>"padding-left:30px;"}
+        %button.btn.btn-primary{:type => "submit"} Save
+        = link_to 'Back', restaurants_path,:class=>"btn btn-default"

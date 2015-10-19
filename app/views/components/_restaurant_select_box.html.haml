@@ -1,0 +1,3 @@
+.form-group
+  %lable Select Restaurant
+  = f.select(n,data.collect {|p| [ p.name, p.id ] },{include_blank: true},{:class=>"form-control"})

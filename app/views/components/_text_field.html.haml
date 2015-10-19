@@ -1,0 +1,6 @@
+.form-group
+  %label
+    =txtLabel
+    - if c=="required"
+      %span.require *
+  = f.text_field n, autofocus: true,:class=>"form-control"

@@ -1,0 +1,26 @@
+= form_for @ameniti do |f|
+  - if @ameniti.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@ameniti.errors.count, "error")} prohibited this ameniti from being saved:"
+      %ul
+        - @ameniti.errors.full_messages.each do |msg|
+          %li= msg
+
+  .col-md-12
+    .form-group
+      %lable
+        Select Restaurant
+      = f.select(:restaurant_id,@restaurants.collect {|p| [ p.name, p.id ] },{include_blank: true},{:class=>"form-control"})
+  - @restaurant_features.each do |rf|
+    .col-md-4
+      .checkbox
+        %label
+          = f.check_box :restaurant_features,{:name=>"ameniti[restaurant_feature_id][]"},"#{rf.id}",""
+          =rf.name
+  .clearfix
+  .h-20{:style=>"height:10px;"}
+  .col-md-12
+    = f.submit 'Save',:class=>"btn btn-primary"
+    = link_to "Back","",:class => "btn btn-default"
+  .clearfix
+  .h-20{:style=>"height:20px;"}

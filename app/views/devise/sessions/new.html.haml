@@ -1,0 +1,36 @@
+.main
+  .container
+    %ul.breadcrumb
+      %li
+        %a{:href => "/"} Home
+      %li.active Login
+    .row.margin-bottom-40
+      = render :partial => "components/shared_login_link"
+      .col-md-9.col-sm-9
+        %h1 Login
+        .content-form-page
+          .row
+            .col-md-7.col-sm-7
+              = form_for(resource, as: resource_name,:html=>{:class=>"form-horizontal form-without-legend"}, url: session_path(resource_name)) do |f|
+                .form-group
+                  %label.col-lg-4.control-label{:for => "email"}
+                    Email
+                    %span.require *
+                  .col-lg-8
+                    = f.email_field :email, autofocus: true,:class=>"form-control"
+                .form-group
+                  %label.col-lg-4.control-label{:for => "password"}
+                    Password
+                    %span.require *
+                  .col-lg-8
+                    = f.password_field :password, autocomplete: "off",:class=>"form-control"
+                .row
+                  .col-lg-8.col-md-offset-4.padding-left-0
+                    .checkbox
+                      %label
+                        %input{:type => "checkbox"} Remember me
+                .row
+                  .col-lg-8.col-md-offset-4.padding-left-0.padding-top-20
+                    %button.btn.btn-primary{:type => "submit"} Login
+            .col-md-4.col-sm-4.pull-right
+              = render :partial => "components/social_media_login"

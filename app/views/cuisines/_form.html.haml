@@ -1,0 +1,72 @@
+= form_for @cuisine do |f|
+  - if @cuisine.errors.any?
+    .list-group-item.list-group-item-danger#error_explanation
+      %h2= "#{pluralize(@cuisine.errors.count, "error")} prohibited this cuisine from being saved:"
+      %ul
+        - @cuisine.errors.full_messages.each do |msg|
+          %li= msg
+
+  %fieldset
+    %legend Cuisine Information
+    .col-md-12
+      = render :partial => "components/text_field" ,:locals => {:f=>f,:n=>"name",:c=>"required",:txtLabel=>"Cuisine Name"}
+      .form-group
+        %label
+          Cuisines Type
+          %span.require *
+        = f.select(:cuisine_type,options_for_select(@cusines_type,:html=>{:class=>"form-control"}), {:include_blank => true},{:class=>"form-control"})
+      .checkbox
+        %label
+          = f.check_box :is_subcategory,:id=>"subcategory"
+          Sub Category
+      .form-group{:id=>"pric_group"}
+        %label
+          Price
+        = f.number_field :price,:class=>"form-control"
+      .checkbox
+        %label
+          = f.check_box :status
+          Active
+  %fieldset{:id=>"available_option"}
+    %legend Available Option
+    .col-md-12
+      .checkbox
+        .col-md-2
+          %label
+            = f.check_box :is_veg
+            Veg
+        .col-md-2
+          %label
+            = f.check_box :is_nonveg
+            Non. Veg
+        .col-md-2
+          %label
+            = f.check_box :is_swaminarayan
+            Swaminarayan
+        .col-md-2
+          %label
+            = f.check_box :is_jain
+            Jain
+  %fieldset
+    %legend Upload Cuisine Image
+    .col-md-12
+      = render :partial => "components/file_field",:locals => {:f=>f,:n=>"image",:c=>"",:txtLabel=>""}
+  %fieldset
+    %legend About Cuisine
+    .col-md-12
+      = render :partial => "components/text_area_editor",:locals => {:f=>f,:n=>"description"}
+  .actions.col-md-12
+    = f.submit 'Save',:class=>"btn btn-primary"
+    = link_to 'Back', cuisines_path,:class=>"btn btn-default"
+
+:javascript
+  $("#subcategory").click(function(){
+      var val = $(this).prop("checked")
+      if(val== true){
+        $("#pric_group").hide();
+        $("#available_option").hide();
+      }else{
+        $("#pric_group").show();
+        $("#available_option").show();
+      }
+  });
