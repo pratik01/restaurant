@@ -12,5 +12,5 @@
       .form-group
         %label Description
         = render :partial => "components/text_area_editor",:locals => {:n=>"description",:f=>f}
-    .actions
+    .col-md-12
       = f.submit 'Save',:class=>"btn btn-primary"

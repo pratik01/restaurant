@@ -1,11 +1,9 @@
-.main
-  .container
+.content
+  .header
+    %h1.page-title Add Features
     %ul.breadcrumb
       %li
-        %a{:href => "/"} Home
-      %li.active Add Features
-    .row.margin-bottom-40
-      .col-md-12.col-sm-12
-        %h1 Add Restaurant Features
-        .content-form-page
-          = render 'form'
+        %a{:href => "index.html"} Home
+      %li.active Add Restaurant Features
+  .main-content
+    = render 'form'

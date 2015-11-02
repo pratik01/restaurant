@@ -1,42 +1,63 @@
-.container
-  %h1 Listing cuisines
-  = link_to 'New Cuisine', new_cuisine_path
-  %table.table
-    %tr
-      %th Image
-      %th Name
-      %th Cuisine type
-      %th About
-      %th Status
-      %th
-      %th
-      %th
+.content
+  .header
+    %h1.page-title Dashboard
+    %ul.breadcrumb
+      %li
+        %a{:href => "index.html"} Home
+      %li.active Dashboard
+  .main-content
+    .btn-toolbar.list-toolbar
+      %a{:href=>new_cuisine_path,:class=>"btn btn-primary"}
+        %i.glyphicon.glyphicon-plus
+        New Cuisine
+      %button.btn.btn-default{:type=>"button"} Import
+      %button.btn.btn-default{:type=>"button"} Export
+    %table.table
+      %tr
+        %th Image
+        %th Name
+        %th Cuisine type
+        %th Price
+        %th Status
+        %th
+        %th
+        %th
 
-    - @cuisines.each do |cuisine|
-      - if cuisine.status==true
-        %tr.success
-          %td
-            %img{:src=>"#{cuisine.image.to_s}",:style=>"height:80px;width:80px;"}
-          %td= cuisine.name
-          %td= cuisine.cuisine_type
-          %td= cuisine.description
-          %td= cuisine.status
-          %td= link_to 'Show', cuisine
-          %td= link_to 'Edit', edit_cuisine_path(cuisine)
-          %td= link_to 'Destroy', cuisine, :method => :delete, :data => { :confirm => 'Are you sure?' }
-      - else
-        %tr.danger
-          %td
-            %img{:src=>"#{cuisine.image.to_s}",:style=>"height:80px;width:80px;"}
-          %td= cuisine.name
-          %td= cuisine.cuisine_type
-          %td= cuisine.description
-          %td= cuisine.status
-          %td= link_to 'Show', cuisine
-          %td= link_to 'Edit', edit_cuisine_path(cuisine)
-          %td= link_to 'Destroy', cuisine, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - @cuisines.each do |cuisine|
+        - if cuisine.status==true
+          %tr.success
+            %td
+              %img{:src=>"#{cuisine.image.to_s}",:style=>"height:80px;width:80px;"}
+            %td= cuisine.name
+            %td= cuisine.cuisine_type
+            %td= cuisine.price
+            %td= cuisine.status
+            %td= link_to 'Show', cuisine
+            %td= link_to 'Edit', edit_cuisine_path(cuisine)
+            %td= link_to 'Destroy', cuisine, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - else
+          %tr.danger
+            %td
+              %img{:src=>"#{cuisine.image.to_s}",:style=>"height:80px;width:80px;"}
+            %td= cuisine.name
+            %td= cuisine.cuisine_type
+            %td= cuisine.description
+            %td= cuisine.status
+            %td= link_to 'Show', cuisine
+            %td= link_to 'Edit', edit_cuisine_path(cuisine)
+            %td= link_to 'Destroy', cuisine, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-
+%footer
+  %hr
+    / Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes
+    %p.pull-right
+      A
+      %a{:href => "http://www.portnine.com/bootstrap-themes", :target => "_blank"} Free Bootstrap Theme
+      by
+      %a{:href => "http://www.portnine.com", :target => "_blank"} Portnine
+    %p
+      © 2014
+      %a{:href => "http://www.portnine.com", :target => "_blank"} Portnine
 
 
 

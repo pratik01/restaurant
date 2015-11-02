@@ -1,27 +1,32 @@
-.pre-header
-  .container
-    .row
-      / BEGIN TOP BAR LEFT PART
-      .col-md-6.col-sm-6.additional-shop-info
-        %ul.list-unstyled.list-inline
+.navbar.navbar-default{:role => "navigation"}
+  .navbar-header
+    %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a{:href => "index.html"}
+      %span.navbar-brand
+        %span.fa.fa-paper-plane
+        BTM
+  .navbar-collapse.collapse{:style => "height: 1px;"}
+    %ul#main-menu.nav.navbar-nav.navbar-right
+      %li.dropdown.hidden-xs
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          %span.glyphicon.glyphicon-user.padding-right-small{:style => "position:relative;top: 3px;"}
+          Jack Smith
+          %i.fa.fa-caret-down
+        %ul.dropdown-menu
           %li
-            %i.fa.fa-phone
-            %span +1 456 6717
-      .col-md-6.col-sm-6.additional-nav
-        %ul.list-unstyled.list-inline.pull-right
+            %a{:href => "./"} My Account
+          %li.divider
+          %li.dropdown-header Admin Panel
           %li
-            City
-            %select
-              %option{:value=>"vadodara"} Vadodara
-              %option{:value=>"ahm"} Ahm
-              %option{:value=>"surat"} Surat
+            %a{:href => "./"} Users
           %li
-            %a{:href => "#"} My Account
+            %a{:href => "./"} Security
           %li
-            %a{:href => "checkout.html"} Checkout
-          - if user_signed_in?
-            %li
-              = link_to "Sign out", destroy_user_session_path, :method => :delete
-          - else
-            %li
-              %a{:href => "/users/sign_in"} Log In
+            %a{:href => "./", :tabindex => "-1"} Payments
+          %li.divider
+          %li
+            %a{:href => "/users/sign_out","data-method"=>"delete", :tabindex => "-1"} Logout

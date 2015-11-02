@@ -1,12 +1,11 @@
-.main
-  .container
+.content
+  .header
+    %h1.page-title Dashboard
     %ul.breadcrumb
       %li
-        %a{:href => "/"} Home
+        %a{:href => "/tables"} Table
       %li.active Edit Table
-    .row.margin-bottom-40
-      .col-md-12.col-sm-12
-        %h1 Edit Table
-        .content-form-page
-          = render 'form'
+  .main-content
+    = render 'form'
+
 

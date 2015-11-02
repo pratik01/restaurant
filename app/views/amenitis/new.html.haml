@@ -1,11 +1,9 @@
-.main
-  .container
+.content
+  .header
+    %h1.page-title Amenities
     %ul.breadcrumb
       %li
-        %a{:href => "/"} Home
-      %li.active Add Ameniti
-    .row.margin-bottom-40
-      .col-md-12.col-sm-12
-        %h1 Add Ameniti
-        .content-form-page
-          = render 'form'
+        %a{:href => "/amenities"} Amenities
+      %li.active Add
+  .main-content
+    = render 'form'

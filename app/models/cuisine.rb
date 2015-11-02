@@ -5,4 +5,5 @@ class Cuisine < ActiveRecord::Base
 
   validates :name, presence: true
   validates :cuisine_type, presence: true
+
 end

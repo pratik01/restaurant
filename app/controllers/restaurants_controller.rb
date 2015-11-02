@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
-
+  include CuisinesHelper
   respond_to :html
 
   def index
@@ -9,6 +9,9 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @cusines_type = cuisines_type
+    @id = @restaurant.id
+    @cuisines = Cuisine.where("restaurant_id=?",@id).order("cuisine_type,is_subcategory")
     respond_with(@restaurant)
   end
 
@@ -39,7 +42,7 @@ class RestaurantsController < ApplicationController
 
   private
     def set_restaurant
-      @restaurant = Restaurant.find(params[:id])
+      @restaurant = Restaurant.includes(:ameniti).find(params[:id])
     end
 
     def restaurant_params

@@ -1,127 +1,19 @@
-/ BEGIN HEADER
-.navbar.header.no-margin{:role => "navigation","data-no-turbolink"=>true}
+.navbar.navbar-default{:role => "navigation","data-no-turbolink"=>true}
   .container
     .navbar-header
-      / BEGIN RESPONSIVE MENU TOGGLER
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      / END RESPONSIVE MENU TOGGLER
-      %a.navbar-brand{:href => "index.html"}
-        Restaurant
-    / LOGO
-    / BEGIN CART
-    .cart-block
-      .cart-info
-        %a.cart-info-count{:href => "javascript:void(0);"} 3 items
-        %a.cart-info-value{:href => "javascript:void(0);"} $1260
-      %i.fa.fa-shopping-cart
-      / BEGIN CART CONTENT
-      .cart-content-wrapper
-        .cart-content
-          %ul.scroller{:style => "height: 250px;"}
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-          .text-right
-            %a.btn.btn-default{:href => "shopping-cart.html"} View Cart
-            %a.btn.btn-primary{:href => "checkout.html"} Checkout
-    / END CART CONTENT
-    / END CART
-    / BEGIN NAVIGATION
-    .collapse.navbar-collapse.mega-menu
-      %ul.nav.navbar-nav
-        %li.dropdown
-          %a.dropdown-toggle{"data-close-others" => "false", "data-delay" => "0", "data-target" => "#", "data-toggle" => "dropdown", :href => "#"}
-            Features
-            %i.fa.fa-angle-down
-          / BEGIN DROPDOWN MENU
-          %ul.dropdown-menu
-            %li
-              %a{:href => "feature-typography.html"} Typography
-            %li
-              %a{:href => "feature-forms.html"} Forms
-            %li
-              %a{:href => "feature-buttons.html"} Buttons
-            %li
-              %a{:href => "feature-icons.html"} Icons
-        %li.menu-search
-          %span.sep
-          %i.fa.fa-search.search-btn
-          .search-box
-            %form{:action => "#"}
-              .input-group
-                %input.form-control{:placeholder => "Search", :type => "text"}
-                  %span.input-group-btn
-                    %button.btn.btn-primary{:type => "submit"} Search
+    .navbar-collapse.collapse{:style => "height: 1px;"}
+      %ul.nav.navbar-nav.navbar-left
+        %li
+          %a{:href=>"/"} Home
+        %li
+          %a{:href=>"/restaurants"} Restaurant
+      %ul#main-menu.nav.navbar-nav.navbar-right
+        %li
+          %a{:href=>"/users/sign_in"} Login
+        %li
+          %a{:href=>"/users/sign_up"} Sign Up

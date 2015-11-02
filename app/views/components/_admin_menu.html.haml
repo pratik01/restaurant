@@ -1,138 +1,78 @@
-/ BEGIN HEADER
-.navbar.header.no-margin{:role => "navigation","data-no-turbolink"=>true}
-  .container
-    .navbar-header
-      / BEGIN RESPONSIVE MENU TOGGLER
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      / END RESPONSIVE MENU TOGGLER
-      %a.navbar-brand{:href => "/"}
-        BMT
-    / LOGO
-    / BEGIN CART
-    .cart-block
-      .cart-info
-        %a.cart-info-count{:href => "javascript:void(0);"} 3 items
-        %a.cart-info-value{:href => "javascript:void(0);"} $1260
-      %i.fa.fa-shopping-cart
-      / BEGIN CART CONTENT
-      .cart-content-wrapper
-        .cart-content
-          %ul.scroller{:style => "height: 250px;"}
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-            %li
-              %a{:href => "item.html"}
-                %img{:alt => "Rolex Classic Watch", :height => "34", :src => "assets/cart-img.jpg", :width => "37"}/
-              %span.cart-content-count x 1
-              %strong
-                %a{:href => "item.html"} Rolex Classic Watch
-              %em $1230
-              %a.del-goods{:href => "javascript:void(0);"}
-                %i.fa.fa-times
-          .text-right
-            %a.btn.btn-default{:href => "shopping-cart.html"} View Cart
-            %a.btn.btn-primary{:href => "checkout.html"} Checkout
-    / END CART CONTENT
-    / END CART
-    / BEGIN NAVIGATION
-    .collapse.navbar-collapse.mega-menu
-      %ul.nav.navbar-nav
-        %li.dropdown
-          %a.dropdown-toggle{"data-close-others" => "false", "data-delay" => "0", "data-target" => "#", "data-toggle" => "dropdown", :href => "#"}
-            Settings
-            %i.fa.fa-angle-down
-          / BEGIN DROPDOWN MENU
-          %ul.dropdown-menu
-            %li
-              %a{:href => "/restaurants"} Restaurant
-            %li
-              %a{:href => "/restaurant_features/new"} Add Restaurant Features
-            %li
-              %a{:href=>"/amenitis"} Restaurant Amenitis
-            %li
-              %a{:href=>"/tables"} Table
-        %li.dropdown
-          %a.dropdown-toggle{"data-close-others" => "false", "data-delay" => "0", "data-target" => "#", "data-toggle" => "dropdown", :href => "#"}
+.sidebar-nav{"data-no-turbolink"=>true}
+  %ul
+    %li
+      %a.nav-header{"data-target" => ".dashboard-menu", "data-toggle" => "collapse", :href => "#"}
+        %i.glyphicon.glyphicon-search
+        Setting
+        %i.fa.fa-collapse
+    %li
+      %ul.dashboard-menu.nav.nav-list.collapse.in
+        %li
+          %a{:href => "/restaurants"}
+            %span.fa.fa-caret-right
+            Restaurant
+        %li
+          %a{:href => "/restaurant_features/new"}
+            %span.fa.fa-caret-right
+            Add Restaurant Features
+        %li
+          %a{:href => "/amenitis"}
+            %span.fa.fa-caret-right
+            Restaurant Amenities
+        %li
+          %a{:href => "/tables"}
+            %span.fa.fa-caret-right
+            Tables
+    %li
+      %a.nav-header{"data-target" => ".menu", "data-toggle" => "collapse", :href => "#"}
+        %i.glyphicon.glyphicon-user
+        Menu
+        %i.fa.fa-collapse
+    %li
+      %ul.menu.nav.nav-list.collapse
+        %li
+          %a{:href => "/menus"}
+            %span.fa.fa-caret-right
             Menu
-          %ul.dropdown-menu
-            %li
-              %a{:href=>"/menus"}
-                Menus
-              %a{:href=>"/cuisines"}
-                Cuisines
-              %a{:href=>"/items"}
-                Item
-        %li.menu-search
-          %span.sep
-          %i.fa.fa-search.search-btn
-          .search-box
-            %form{:action => "#"}
-              .input-group
-                %input.form-control{:placeholder => "Search", :type => "text"}
-                  %span.input-group-btn
-                    %button.btn.btn-primary{:type => "submit"} Search
+        %li
+          %a{:href => "/cuisines"}
+            %span.fa.fa-caret-right
+            Cuisines
+        %li
+          %a{:href => "/items"}
+            %span.fa.fa-caret-right
+            Items
+    %li
+      %a.nav-header.collapsed{"data-target" => ".accounts-menu", "data-toggle" => "collapse", :href => "#"}
+        %i.fa.fa-fw.fa-briefcase
+        Account
+        %span.label.label-info +3
+    %li
+      %ul.accounts-menu.nav.nav-list.collapse
+        %li
+          %a{:href => "sign-in.html"}
+            %span.fa.fa-caret-right
+            Sign In
+        %li
+          %a{:href => "sign-up.html"}
+            %span.fa.fa-caret-right
+            Sign Up
+        %li
+          %a{:href => "reset-password.html"}
+            %span.fa.fa-caret-right
+            Reset Password
+    %li
+      %a.nav-header.collapsed{"data-target" => ".legal-menu", "data-toggle" => "collapse", :href => "#"}
+        %i.fa.fa-fw.fa-legal
+        Legal
+        %i.fa.fa-collapse
+    %li
+      %ul.legal-menu.nav.nav-list.collapse
+        %li
+          %a{:href => "privacy-policy.html"}
+            %span.fa.fa-caret-right
+            Privacy Policy
+        %li
+          %a{:href => "terms-and-conditions.html"}
+            %span.fa.fa-caret-right
+            Terms and Conditions

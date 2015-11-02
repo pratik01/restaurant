@@ -29,6 +29,8 @@ class AmenitisController < ApplicationController
     @ids.each do |id|
       @ameniti = Ameniti.new(ameniti_params)
       @ameniti.restaurant_feature_id = id
+      @restaurant_features = RestaurantFeature.find(id)
+      @ameniti.name = @restaurant_features.name
       @ameniti.save
     end
     respond_with(@ameniti)

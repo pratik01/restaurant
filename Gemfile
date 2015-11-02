@@ -31,12 +31,13 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+gem 'eventmachine','1.0.3'
 gem 'haml-rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'the_role'
-gem 'thin'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

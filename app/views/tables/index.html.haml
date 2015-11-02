@@ -1,21 +1,32 @@
-.container
-  %h1 Listing tables
-  = link_to 'New Table', new_table_path
-  %table.table
-    %tr
-      %th Code
-      %th Capacity
-      %th
-      %th
-      %th
-
-    - @tables.each do |table|
+.content
+  .header
+    %h1.page-title Tables
+    %ul.breadcrumb
+      %li
+        %a{:href => "index.html"} Home
+      %li.active Tables
+  .main-content
+    .btn-toolbar.list-toolbar
+      %a{:href=>new_table_path,:class=>"btn btn-primary"}
+        %i.glyphicon.glyphicon-plus
+        New Table
+      %button.btn.btn-default{:type=>"button"} Import
+      %button.btn.btn-default{:type=>"button"} Export
+    %table.table
       %tr
-        %td= table.code
-        %td= table.capacity
-        %td= link_to 'Show', table
-        %td= link_to 'Edit', edit_table_path(table)
-        %td= link_to 'Destroy', table, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Code
+        %th Capacity
+        %th
+        %th
+        %th
+
+      - @tables.each do |table|
+        %tr
+          %td= table.code
+          %td= table.capacity
+          %td= link_to 'Show', table
+          %td= link_to 'Edit', edit_table_path(table)
+          %td= link_to 'Destroy', table, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
 

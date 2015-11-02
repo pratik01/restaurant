@@ -1,11 +1,11 @@
-.main
-  .container
+.content
+  .header
+    %h1.page-title Cuisine
     %ul.breadcrumb
       %li
-        %a{:href => "/"} Home
-      %li.active Edit Cuisines
-    .row.margin-bottom-40
-      .col-md-12.col-sm-12
-        %h1 Edit Cuisines
-        .content-form-page
-          = render 'form'
+        %a{:href => "/cuisines"} Cuisine
+      %li.active Edit Cuisine
+  .main-content
+    = render 'form'
+
+

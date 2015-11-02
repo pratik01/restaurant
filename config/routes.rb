@@ -13,7 +13,9 @@ Myrestaurant::Application.routes.draw do
 
   resources :restaurant_features
 
-  resources :restaurants
+  resources :restaurants do
+    resources :reviews,:tables
+  end
 
   resources :customers
 

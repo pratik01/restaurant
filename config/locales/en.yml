@@ -20,4 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+  models:
+    restaurant: "Restaurant"
+    attributes:
+      restaurant:
+        name: "Restaurant Name"
+        contact1: "Mobile"
+    errors:
+      models:
+        restaurant:
+        attributes:
+          name:
+            blank: "is required"

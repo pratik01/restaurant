@@ -1,11 +1,9 @@
-.main
-  .container
+.content
+  .header
+    %h1.page-title Items
     %ul.breadcrumb
       %li
-        %a{:href => "/"} Home
-      %li.active Edit Item
-    .row.margin-bottom-40
-      .col-md-12.col-sm-12
-        %h1 Edit Item
-        .content-form-page
-          = render 'form'
+        %a{:href => "/items"} Items
+      %li.active Edit
+  .main-content
+    = render 'form'

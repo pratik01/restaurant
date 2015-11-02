@@ -1,7 +1,9 @@
 class CuisinesController < ApplicationController
   before_action :set_cuisine, only: [:show, :edit, :update, :destroy]
   before_action :set_cuisine_type,only: [:new,:edit]
+  before_action :set_restaurant,only: [:new,:edit]
   include CuisinesHelper
+  include RestaurantsHelper
   respond_to :html
 
   def index
@@ -44,6 +46,9 @@ class CuisinesController < ApplicationController
   end
 
   private
+    def set_restaurant
+       @restaurants = getRestaurantList
+    end
 
     def set_cuisine_type
       @cusines_type = cuisines_type

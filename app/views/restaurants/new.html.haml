@@ -1,11 +1,20 @@
-.main
-  .container
+.content
+  .header
+    %h1.page-title Restaurant
     %ul.breadcrumb
       %li
-        %a{:href => "/"} Home
-      %li.active Add Restaurant
-    .row.margin-bottom-40
-      .col-md-12.col-sm-12
-        %h1 Add Restaurant
-        .content-form-page
-          = render 'form'
+        %a{:href => "index.html"} Home
+      %li.active Restaurant
+  .main-content
+    = render 'form'
+  %footer
+    %hr
+      / Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes
+      %p.pull-right
+        A
+        %a{:href => "http://www.portnine.com/bootstrap-themes", :target => "_blank"} Free Bootstrap Theme
+        by
+        %a{:href => "http://www.portnine.com", :target => "_blank"} Portnine
+      %p
+        © 2014
+        %a{:href => "http://www.portnine.com", :target => "_blank"} Portnine

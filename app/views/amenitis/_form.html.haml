@@ -6,21 +6,45 @@
         - @ameniti.errors.full_messages.each do |msg|
           %li= msg
 
-  .col-md-12
+  .col-md-11
     .form-group
       %lable
         Select Restaurant
       = f.select(:restaurant_id,@restaurants.collect {|p| [ p.name, p.id ] },{include_blank: true},{:class=>"form-control"})
-  - @restaurant_features.each do |rf|
-    .col-md-4
-      .checkbox
-        %label
-          = f.check_box :restaurant_features,{:name=>"ameniti[restaurant_feature_id][]"},"#{rf.id}",""
-          =rf.name
+
+  .col-md-5
+    %select{:name=>"restaurant_features",:id=>"restaurant_features",:size=>10,:class=>"form-control"}
+      - @restaurant_features.each do |rf|
+        %option{:value=>"#{rf.id}"}=rf.name
+  .col-md-1
+    %button.btn.btn-sm{:type=>"button",:id=>"left-arrow"}
+      %i.fui-arrow-right
+    .clearfix
+    .h-20
+    %button.btn.btn-sm{:type=>"button",:id=>"right-arrow"}
+      %i.fui-arrow-left
+  .col-md-5
+    %select{:name=>"ameniti[restaurant_feature_id][]",:id=>"restaurant_feature_id",:class=>"form-control",:size=>"10"}
   .clearfix
   .h-20{:style=>"height:10px;"}
   .col-md-12
     = f.submit 'Save',:class=>"btn btn-primary"
-    = link_to "Back","",:class => "btn btn-default"
+    = link_to "Back","/amenitis",:class => "btn btn-default"
   .clearfix
   .h-20{:style=>"height:20px;"}
+
+:javascript
+  $("#left-arrow").click(function(){
+      var val = $("#restaurant_features").val();
+      var text = $("#restaurant_features option:selected").text();
+      var option = "<option value="+val+">"+text+"</option>";
+      $("#restaurant_feature_id").append(option);
+      $("#restaurant_features option:selected").remove();
+  });
+  $("#right-arrow").click(function(){
+     var val = $("#restaurant_feature_id").val();
+     var text = $("#restaurant_feature_id option:selected").text();
+     var option = "<option value="+val+">"+text+"</option>";
+     $("#restaurant_features").append(option);
+     $("#restaurant_feature_id option:selected").remove();
+  });

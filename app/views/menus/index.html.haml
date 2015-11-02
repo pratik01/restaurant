@@ -1,37 +1,53 @@
-.main
-  .row
-    .container.content-form-page
+.content
+  .header
+    %h1.page-title Menu
+    %ul.breadcrumb
+      %li.active Menu
+  .main-content
+    .col-md-12{:style=>"height:550px;overflow:auto;"}
       .h-20{:style=>"height:20px;clear:both;"}
       .col-md-3
         - @cusines_type.each do |ct|
           .list-group{:style=>"margin-bottom:0px;"}
-            %a.list-group-item{:href=>"#",:style=>"font-weight:bold;"}
+            %a.list-group-item{:href=>"##{ct.to_s}",:style=>"font-weight:bold;"}
               =ct.to_s
+        - @cuisines.each do |c|
+          - if c.is_subcategory==true
+            .list-group{:style=>"margin-bottom:0px;"}
+              %a.list-group-item{:href=>"##{c.name}",:style=>"font-weight:bold;"}
+                =c.name
       .col-md-9
-        .col-md-12{:style=>"padding-right:6px;"}
+        .col-md-12{:style=>"padding-right:18px !important;"}
           .pull-left
-            %input{:type=>"text",:class=>"form-control",:placeholder=>"Search"}
+            %input{:type=>"text",:class=>"form-control input-sm",:placeholder=>"Search"}
           .pull-right
-            %button.btn.btn-primary{:type=>"button"}
+            %button.btn.btn-primary.btn-sm{:type=>"button"}
               List
-            %button.btn.btn-default{:type=>"button"}
+            %button.btn.btn-default.btn-sm{:type=>"button"}
               Grid
         .h-10{:style=>"height:10px;clear:both;"}
         .col-md-12
-          - @cuisines.each do |c|
-            - if c.is_subcategory==false
-              .panel.panel-default
-                .panel-heading
-                  =c.cuisine_type
-                .panel-body
-                  =c.name
-            - else
-              .panel.panel-default
-                .panel-heading
-                  = c.name
-                %table.table.table-bordered
-                  - c.items.each do |ci|
-                    %tr
-                      %td{:width=>200}
-                        = ci.name
-                      %td=ci.price.to_s+" Rs."
+          - @cusines_type.each do |ct|
+            .panel.panel-default{:id=>"#{ct.to_s}"}
+              .panel-heading
+                =ct.to_s
+              .panel-body
+                - @cuisines.each do |c|
+                  - if (ct.to_s == c.cuisine_type) && (c.is_subcategory==false)
+                    %table.table.table-bordered{:style=>"margin-bottom:0px;"}
+                      %tr
+                        %td{:width=>250}
+                          =c.name
+                        %td
+                          =c.price
+                  - elsif (ct.to_s == c.cuisine_type) && (c.is_subcategory==true)
+                    .col-md-12{:style=>"padding-top:10px;padding-left:0px;padding-right:0px;"}
+                      .panel.panel-default
+                        .panel-heading
+                          =c.name
+                        %table.table.table-bordered
+                          - c.items.each do |i|
+                            %tr
+                              %td{:width=>250}
+                                =i.name
+                              %td=i.price

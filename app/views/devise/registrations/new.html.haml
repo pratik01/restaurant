@@ -1,60 +1,55 @@
-.main
-  .container
-    %ul.breadcrumb
-      %li
-        %a{:href => "/"} Home
-      %li.active Create new account
-    / BEGIN SIDEBAR &amp; CONTENT
-    .row.margin-bottom-40
-      = render :partial => "components/shared_login_link"
-      / BEGIN CONTENT
-      .col-md-9.col-sm-9
-        %h1 Create an account
-        .content-form-page
-          .row
-            .col-md-7.col-sm-7
-              = form_for(resource, as: resource_name,:html=>{:class=>"form-horizontal"}, url: registration_path(resource_name)) do |f|
-                %fieldset
-                  %legend Your personal details
-                  .form-group
-                    %label.col-lg-4.control-label{:for => "firstname"}
-                      First Name
-                      %span.require *
-                    .col-lg-8
-                      = f.text_field :first_name, autofocus: true,:class=>"form-control"
-                  .form-group
-                    %label.col-lg-4.control-label{:for => "lastname"}
-                      Last Name
-                      %span.require *
-                    .col-lg-8
-                      = f.text_field :last_name, autofocus: true,:class=>"form-control"
-                  .form-group
-                    %label.col-lg-4.control-label{:for => "email"}
-                      Email
-                      %span.require *
-                    .col-lg-8
-                      = f.email_field :email, autofocus: true,:class=>"form-control"
-                %fieldset
-                  %legend Your password
-                  .form-group
-                    %label.col-lg-4.control-label{:for => "password"}
-                      Password
-                      %span.require *
-                    .col-lg-8
-                      - if @minimum_password_length
-                        %em
-                          (#{@minimum_password_length} characters minimum)
-                      %br/
-                      = f.password_field :password, autocomplete: "off",:class=>"form-control"
-                  .form-group
-                    %label.col-lg-4.control-label{:for => "confirm-password"}
-                      Confirm password
-                      %span.require *
-                    .col-lg-8
-                      = f.password_field :password_confirmation, autocomplete: "off",:class=>"form-control"
-                .row
-                  .col-lg-8.col-md-offset-4.padding-left-0.padding-top-20
-                    %button.btn.btn-primary{:type => "submit"} Create an acoount
-                    %button.btn.btn-default{:type => "button"} Cancel
-            .col-md-4.col-sm-4.pull-right
-              = render :partial => "components/social_media_login"
+.h-20
+.container
+  .row.margin-bottom-40
+    = render :partial => "components/shared_login_link"
+    / BEGIN CONTENT
+    .col-md-9.col-sm-9
+      %h3 Create an account
+      .content-form-page
+        .row
+          .col-md-7.col-sm-7
+            = form_for(resource, as: resource_name,:html=>{:class=>"form-horizontal"}, url: registration_path(resource_name)) do |f|
+              %fieldset
+                %legend Your personal details
+                .form-group
+                  %label.col-lg-4.control-label{:for => "firstname"}
+                    First Name
+                    %span.require *
+                  .col-lg-8
+                    = f.text_field :first_name, autofocus: true,:class=>"form-control"
+                .form-group
+                  %label.col-lg-4.control-label{:for => "lastname"}
+                    Last Name
+                    %span.require *
+                  .col-lg-8
+                    = f.text_field :last_name, autofocus: true,:class=>"form-control"
+                .form-group
+                  %label.col-lg-4.control-label{:for => "email"}
+                    Email
+                    %span.require *
+                  .col-lg-8
+                    = f.email_field :email, autofocus: true,:class=>"form-control"
+              %fieldset
+                %legend Your password
+                .form-group
+                  %label.col-lg-4.control-label{:for => "password"}
+                    Password
+                    %span.require *
+                  .col-lg-8
+                    - if @minimum_password_length
+                      %em
+                        (#{@minimum_password_length} characters minimum)
+                    %br/
+                    = f.password_field :password, autocomplete: "off",:class=>"form-control"
+                .form-group
+                  %label.col-lg-4.control-label{:for => "confirm-password"}
+                    Confirm password
+                    %span.require *
+                  .col-lg-8
+                    = f.password_field :password_confirmation, autocomplete: "off",:class=>"form-control"
+              .row
+                .col-lg-8.col-md-offset-4.padding-left-0.padding-top-20
+                  %button.btn.btn-primary{:type => "submit"} Create an acoount
+                  %button.btn.btn-default{:type => "button"} Cancel
+          .col-md-4.col-sm-4.pull-right
+            = render :partial => "components/social_media_login"

@@ -5,17 +5,16 @@
 = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
 = javascript_include_tag "application", "data-turbolinks-track" => true
 = csrf_meta_tags
-%body
-  %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&subset=all", :rel => "stylesheet", :type => "text/css"}
-  %link{:href => "http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=all", :rel => "stylesheet", :type => "text/css"}
-  %link{:href => "http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&subset=all", :rel => "stylesheet", :type => "text/css"}
-  = render :partial =>  "components/header"
-  - if user_signed_in?
-    - @user = current_user
-    - if @user.role.name=="admin"
-      = render :partial => "components/admin_menu"
+%body.theme-blue
+  .container-fluid
+    - if user_signed_in?
+      = render :partial =>  "components/header"
+      - @user = current_user
+      - if @user.role.name=="admin"
+        = render :partial => "components/admin_menu"
+      - else
+        = render :partial => "components/menu"
     - else
+      = render :partial =>"components/header1"
       = render :partial => "components/menu"
-  - else
-    = render :partial => "components/menu"
-  = yield
+    = yield

@@ -1,13 +1,11 @@
-.main
-  .container
+.content
+  .header
+    %h1.page-title Cuisine
     %ul.breadcrumb
       %li
-        %a{:href => "/"} Home
+        %a{:href => "index.html"} Cuisine
       %li.active Add Cuisine
-    .row.margin-bottom-40
-      .col-md-12.col-sm-12
-        %h1 Add cuisine
-        .content-form-page
-          = render 'form'
+  .main-content
+    = render 'form'
 
 

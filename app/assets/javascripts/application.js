@@ -13,21 +13,29 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery-migrate
-//= require bootstrap
-//= require jquery-te
-//= require back-to-top
-//= require jquery.slimscroll
-//= require jquery-fancybox-pack
-//= require jquery-bxslider
-//= require jquery-rateit
-//= require jquery-zoom
-//= require bootstraptouchspin
-//= require jquery-easing
-//= require jquery-transit-modified
-//= require layerslider-transitions
-//= require layerslider-kreaturamedia-jquery
-//= require app
-//= require index
-
+//= require country
+//= require bootstrap-min
+//= require jqueryknob
 //= require_tree .
+$(function() {
+    $(".knob").knob();
+});
+$(function() {
+    var match = document.cookie.match(new RegExp('color=([^;]+)'));
+    if(match) var color = match[1];
+    if(color) {
+        $('body').removeClass(function (index, css) {
+            return (css.match (/\btheme-\S+/g) || []).join(' ')
+        })
+        $('body').addClass('theme-' + color);
+    }
+
+    $('[data-popover="true"]').popover({html: true});
+
+});
+
+$(function() {
+    var uls = $('.sidebar-nav > ul > *').clone();
+    uls.addClass('visible-xs');
+    $('#main-menu').append(uls.clone());
+});

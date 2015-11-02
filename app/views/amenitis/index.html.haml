@@ -1,16 +1,29 @@
-.container
-  = link_to 'New Ameniti', new_ameniti_path
-  %h1 Listing amenitis
-  %table.table
-    %tr
-      %th Name
-      %th
-      %th
-
-    - @amenitis.each do |ameniti|
+.content
+  .header
+    %h1.page-title Amenities
+    %ul.breadcrumb
+      %li
+        %a{:href => "index.html"} Home
+      %li.active Amenities
+  .main-content
+    .btn-toolbar.list-toolbar
+      %a{:href=>new_ameniti_path,:class=>"btn btn-primary"}
+        %i.glyphicon.glyphicon-plus
+        New Amenitie
+      %button.btn.btn-default{:type=>"button"} Import
+      %button.btn.btn-default{:type=>"button"} Export
+    %table.table
       %tr
-        %td= link_to 'Show', ameniti
-        %td= link_to 'Edit', edit_ameniti_path(ameniti)
-        %td= link_to 'Destroy', ameniti, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Name
+        %th
+        %th
+        %th
+
+      - @amenitis.each do |ameniti|
+        %tr
+          %td=ameniti.name
+          %td= link_to 'Show', ameniti
+          %td= link_to 'Edit', edit_ameniti_path(ameniti)
+          %td= link_to 'Destroy', ameniti, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 

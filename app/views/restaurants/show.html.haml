@@ -1,117 +1,158 @@
-.main
-  .container
+%link{:href => "http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css", :rel => "stylesheet"}
+:css
+  @font-face {
+  	font-family: 'Glyphicons Halflings';
+  	src:url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/fonts/glyphicons-halflings-regular.eot');
+  	src:url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+  		url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/fonts/glyphicons-halflings-regular.woff') format('woff'),
+  		url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+  		url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+  }
+.content
+  .header
+    %h1.page-title Dashboard
     %ul.breadcrumb
       %li
         %a{:href => "index.html"} Home
-      %li
-        %a{:href => "/restaurants"} Restaurants
-      %li.active=@restaurant.name
-    / BEGIN SIDEBAR &amp; CONTENT
-    .row.margin-bottom-40
+      %li.active Dashboard
+  .main-content
+    .col-md-12
+      .h-20
       .col-md-12.col-sm-12
-        .product-page
-          .row
-            .col-md-2.col-sm-2
-              .product-main-image
-                %img.img-responsive.thumbnail{:src => "#{@restaurant.logo.to_s}",:style=>"height:150px;width:100%"}
-            .col-md-6.col-sm-6
-              %h1=@restaurant.name
-              .description{:style=>"padding-top:10px;"}
-                = @restaurant.address1
-                = @restaurant.address2
-                = @restaurant.city
-                = @restaurant.state
-                = @restaurant.zip_code
-              .review{:style=>"padding-top:40px;"}
-                %input#backing4{:step => "0.25", :type => "range", :value => "4"}
-                  .rateit{"data-rateit-backingfld" => "#backing4", "data-rateit-ispreset" => "true", "data-rateit-max" => "5", "data-rateit-min" => "0", "data-rateit-resetable" => "false"}
-                  %a{:href => "#"} 7 reviews |
-                  %a{:href => "#"} Write a review
-              %ul.social-icons
-                %li
-                  %a.facebook{"data-original-title" => "facebook", :href => "#"}
-                %li
-                  %a.twitter{"data-original-title" => "twitter", :href => "#"}
-                %li
-                  %a.googleplus{"data-original-title" => "googleplus", :href => "#"}
-                %li
-                  %a.evernote{"data-original-title" => "evernote", :href => "#"}
-                %li
-                  %a.tumblr{"data-original-title" => "tumblr", :href => "#"}
-            .col-md-4
-              %button.btn.btn-primary{:type=>"button"} Book Table
-            .product-page-content{:style=>"padding-top:15px;"}
-              %ul#myTab.nav.nav-tabs
-                %li
-                  %a{"data-toggle" => "tab", :href => "#about"} About Restaurant
-                %li
-                  %a{"data-toggle" => "tab", :href => "#amenities"} Amenities
-                %li
-                  %a{"data-toggle" => "tab", :href => "#cuisine"} Cuisine
-                %li.active
-                  %a{"data-toggle" => "tab", :href => "#Reviews"} Reviews (2)
-              #myTabContent.tab-content
-                #about.tab-pane.fade
-                  %p=@restaurant.description
-                #amenities.tab-pane.fade
-                  %table.datasheet
-                    %tr
-                      %th{:colspan => "2"} Additional features
-                    %tr
-                      %td.datasheet-features-type Value 1
-                #cuisine.tab-pane.fade.in.active
-                  -@restaurant.cuisines.each do |c|
-                    - if c.is_subcategory==false
-                      .panel.panel-default
-                        .panel-heading
-                          =c.cuisine_type
-                        .panel-body
+        .row
+          .col-md-2.col-sm-2
+            .product-main-image
+              %img.img-responsive.thumbnail{:src => "#{@restaurant.logo.to_s}",:style=>"height:150px;width:100%"}
+          .col-md-4.col-sm-4
+            %h6{:style=>"margin-bottom:0px;"}
+              =@restaurant.name
+            .description{:style=>"padding-top:10px;"}
+              = @restaurant.address1
+              = @restaurant.address2
+              = @restaurant.city
+              = @restaurant.state
+              = @restaurant.zip_code
+              %hr
+              .stars.stars-example-bootstrap
+                %select#example-bootstrap{:name => "rating"}
+                  %option{:value => "1"} 1
+                  %option{:value => "2"} 2
+                  %option{:value => "3"} 3
+                  %option{:value => "4"} 4
+                  %option{:value => "5"} 5
+          .col-md-2
+          .col-md-4
+            %button.btn.btn-primary{:type=>"button"} Book Table
+
+        .row
+          %hr{:style=>"margin-bottom:0px;"}
+          %ul.nav.nav-tabs
+            %li.active
+              %a{"data-toggle" => "tab", :href => "#about"} About
+            %li
+              %a{"data-toggle" => "tab",:href => "#ameniti"} Amenities
+            %li
+              %a{"data-toggle" => "tab", :href => "#menu"} Menu
+            %li
+              %a{"data-toggle" => "tab", :href => "#review"} Review
+          .tab-content
+            #about.tab-pane.fade.in.active
+              .h-20
+              .container
+                =@restaurant.description
+            #ameniti.tab-pane.fade
+              .h-20
+              .container
+                - @restaurant.ameniti.in_groups_of(2) do |ag|
+                  - for a in ag
+                    %p=a.name
+            #menu.tab-pane.fade{:style=>"overflow:auto;height:400px;"}
+              .h-20
+              - if !@cuisines.blank?
+                .col-md-3
+                  - @cusines_type.each do |ct|
+                    .list-group{:style=>"margin-bottom:0px;"}
+                      %a.list-group-item{:href=>"##{ct.to_s}",:style=>"font-weight:bold;"}
+                        =ct.to_s
+                  - @cuisines.each do |c|
+                    - if c.is_subcategory==true
+                      .list-group{:style=>"margin-bottom:0px;"}
+                        %a.list-group-item{:href=>"##{c.name}",:style=>"font-weight:bold;"}
                           =c.name
-                    - else
-                      .panel.panel-default
-                        .panel-heading
-                          = c.name
-                        %table.table.table-bordered
-                          - c.items.each do |ci|
-                            %tr
-                              %td{:width=>200}
-                                = ci.name
-                              %td=ci.price.to_s+" Rs."
-                #Reviews.tab-pane
-                  / <p>There are no reviews for this product.</p>
-                  .review-item.clearfix
-                    .review-item-submitted
-                      %strong Bob
-                      %em 30/12/2013 - 07:37
-                      .rateit{"data-rateit-ispreset" => "true", "data-rateit-readonly" => "true", "data-rateit-value" => "5"}
-                    .review-item-content
-                      %p Sed velit quam, auctor id semper a, hendrerit eget justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel arcu pulvinar dolor tempus feugiat id in orci. Phasellus sed erat leo. Donec luctus, justo eget ultricies tristique, enim mauris bibendum orci, a sodales lectus purus ut lorem.
-                  .review-item.clearfix
-                    .review-item-submitted
-                      %strong Mary
-                      %em 13/12/2013 - 17:49
-                      .rateit{"data-rateit-ispreset" => "true", "data-rateit-readonly" => "true", "data-rateit-value" => "2.5"}
-                    .review-item-content
-                      %p Sed velit quam, auctor id semper a, hendrerit eget justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel arcu pulvinar dolor tempus feugiat id in orci. Phasellus sed erat leo. Donec luctus, justo eget ultricies tristique, enim mauris bibendum orci, a sodales lectus purus ut lorem.
-                  / BEGIN FORM
-                  %form.reviews-form{:action => "#", :role => "form"}
-                    %h2 Write a review
-                    .form-group
-                      %label{:for => "name"}
-                        Name
-                        %span.require *
-                      %input#name.form-control{:type => "text"}
-                    .form-group
-                      %label{:for => "email"} Email
-                      %input#email.form-control{:type => "text"}
-                    .form-group
-                      %label{:for => "review"}
-                        Review
-                        %span.require *
-                      %textarea#review.form-control{:rows => "8"}
-                    .form-group
-                      %label{:for => "email"} Rating
-                      %input#backing5{:step => "0.25", :type => "range", :value => "4"}
-                        .rateit{"data-rateit-backingfld" => "#backing5", "data-rateit-ispreset" => "true", "data-rateit-max" => "5", "data-rateit-min" => "0", "data-rateit-resetable" => "false"}
-                    .padding-top-20
-                      %button.btn.btn-primary{:type => "submit"} Send
+                .col-md-9
+                  - @cusines_type.each do |ct|
+                    .panel.panel-default{:id=>"#{ct.to_s}"}
+                      .panel-heading
+                        =ct.to_s
+                      .panel-body
+                        - @cuisines.each do |c|
+                          - if (ct.to_s == c.cuisine_type) && (c.is_subcategory==false)
+                            %table.table.table-bordered{:style=>"margin-bottom:0px;"}
+                              %tr
+                                %td{:width=>250}
+                                  =c.name
+                                %td
+                                  =c.price
+                          - elsif (ct.to_s == c.cuisine_type) && (c.is_subcategory==true)
+                            .col-md-12{:style=>"padding-top:10px;padding-left:0px;padding-right:0px;"}
+                              .panel.panel-default{:id=>"#{c.name}"}
+                                .panel-heading
+                                  =c.name
+                                %table.table.table-bordered
+                                  - c.items.each do |i|
+                                    %tr
+                                      %td{:width=>250}
+                                        =i.name
+                                      %td=i.price
+              -else
+                %h6.text-center Menu Not Available
+            #review.tab-pane.fade{:style=>"overflow:auto;height:400px;"}
+              .h-20
+              .review-item
+                .review-item-submitted
+                  %strong Bob
+                  %em 30/12/2013 - 07:37
+                  .rateit{"data-rateit-ispreset" => "true", "data-rateit-readonly" => "true", "data-rateit-value" => "5"}
+                .review-item-content
+                  %p Sed velit quam, auctor id semper a, hendrerit eget justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel arcu pulvinar dolor tempus feugiat id in orci. Phasellus sed erat leo. Donec luctus, justo eget ultricies tristique, enim mauris bibendum orci, a sodales lectus purus ut lorem.
+              .review-item.clearfix
+                .review-item-submitted
+                  %strong Mary
+                  %em 13/12/2013 - 17:49
+                  .rateit{"data-rateit-ispreset" => "true", "data-rateit-readonly" => "true", "data-rateit-value" => "2.5"}
+                .review-item-content
+                  %p Sed velit quam, auctor id semper a, hendrerit eget justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel arcu pulvinar dolor tempus feugiat id in orci. Phasellus sed erat leo. Donec luctus, justo eget ultricies tristique, enim mauris bibendum orci, a sodales lectus purus ut lorem.
+              / BEGIN FORM
+              %form.reviews-form{:action => "#", :role => "form"}
+                %h6 Write a review
+                .form-group
+                  %label{:for => "name"}
+                    Name
+                    %span.require *
+                  %input#name.form-control{:type => "text"}
+                .form-group
+                  %label{:for => "email"} Email
+                  %input#email.form-control{:type => "text"}
+                .form-group
+                  %label{:for => "review"}
+                    Review
+                    %span.require *
+                  %textarea#review.form-control{:rows => "8"}
+                .form-group
+                  %label{:for => "email"} Rating
+                  %input#backing5{:step => "0.25", :type => "range", :value => "4"}
+                    .rateit{"data-rateit-backingfld" => "#backing5", "data-rateit-ispreset" => "true", "data-rateit-max" => "5", "data-rateit-min" => "0", "data-rateit-resetable" => "false"}
+                .padding-top-20
+                  %button.btn.btn-primary{:type => "submit"} Send
+                .h-20
+%footer
+  %hr
+    / Purchase a site license to remove this link from the footer: http://www.portnine.com/bootstrap-themes
+    %p.pull-right
+      A
+      %a{:href => "http://www.portnine.com/bootstrap-themes", :target => "_blank"} Free Bootstrap Theme
+      by
+      %a{:href => "http://www.portnine.com", :target => "_blank"} Portnine
+    %p
+      © 2014
+      %a{:href => "http://www.portnine.com", :target => "_blank"} Portnine

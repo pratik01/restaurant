@@ -1,36 +1,68 @@
 .row
   = form_for @restaurant do |f|
+    - if @restaurant.errors.any?
+      #error_explanation.alert-danger{:style=>"padding:10px;"}
+        %h2= "#{pluralize(@restaurant.errors.count, "error")} prohibited this restaurant from being saved:"
+        %ul
+          - @restaurant.errors.full_messages.each do |msg|
+            %li= msg
     .col-md-6.col-sm-6{:style=>"padding:15px;"}
       %fieldset
         %legend Restaurant Details
         .col-md-12
           = render :partial => "components/text_field",:locals => {:f=>f,:n=>"name",:c=>"required",:txtLabel=>"Name"}
           = render :partial => "components/file_field",:locals => {:f=>f,:n=>"logo",:c=>"",:txtLabel=>"Upload Logo"}
+        .col-md-4
           .form-group
             %label
               Register Date
-            = f.text_field :resister_date,:class=>"form-control"
-          .checkbox
+            = f.text_field :resister_date,:class=>"form-control input-sm"
+        .col-md-4
+          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"contact1",:c=>"required",:txtLabel=>"Mobile"}
+        .col-md-4
+          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"contact2",:c=>"required",:txtLabel=>"Phone"}
+        .col-md-4
+          .form-group
+            %label Delay Time
+            %select{:class=>"form-control input-sm",:name=>"restaurant[delay_time]"}
+              %option{:value=>"30"}30 Min
+              %option{:value=>"45"}45 Min
+              %option{:value=>"60"}60 Min
+              %option{:value=>"80"}80 Min
+        .col-md-4{:style=>"padding-left:0px;"}
+          .checkbox{:style=>"padding-left:15px;padding-top:18px;"}
             %label
-              = f.check_box :is_active
+              = f.check_box :is_active,:style=>"margin-top:10px;margin-left:-18px;"
               Active
     .col-md-6.col-sm-6{:style=>"padding:15px;"}
       %fieldset
         %legend Address Details
         .col-md-12
-          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"address1",:c=>"",:txtLabel=>"Address 1"}
+          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"address1",:c=>"required",:txtLabel=>"Address 1"}
           = render :partial => "components/text_field",:locals => {:f=>f,:n=>"address2",:c=>"",:txtLabel=>"Address 2"}
-          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"state",:c=>"",:txtLabel=>"State"}
-        .col-md-6
-          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"city",:c=>"",:txtLabel=>"City"}
-        .col-md-6
-          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"zip_code",:c=>"",:txtLabel=>"Zip Code"}
+          %select{:id=>"country",:style=>"display:none;"}
+        .col-md-4
+          .form-group
+            %label
+              State
+              %span.require *
+            =f.select(:state,{},{},{:class=>"form-control input-sm",:id=>"state"})
+        .col-md-4
+          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"city",:c=>"required",:txtLabel=>"City"}
+        .col-md-4
+          = render :partial => "components/text_field",:locals => {:f=>f,:n=>"zip_code",:c=>"required",:txtLabel=>"Zip Code"}
     .col-md-12
       %fieldset
         %legend About Restaurant
         .col-md-12
           = render :partial => "components/text_area_editor",:locals => {:f=>f,:n=>"description"}
-    .row
-      .col-md-12{:style=>"padding-left:30px;"}
-        %button.btn.btn-primary{:type => "submit"} Save
-        = link_to 'Back', restaurants_path,:class=>"btn btn-default"
+    .h-20
+    .col-md-12
+      %button.btn.btn-primary{:type => "submit"} Save
+      = link_to 'Back', restaurants_path,:class=>"btn btn-default"
+:javascript
+  $(document).ready(function(){
+  	populateCountries("country", "state");
+  	$("#country").val("India");
+  	$("#country").change();
+  });
