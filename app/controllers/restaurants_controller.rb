@@ -1,18 +1,35 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
-  include CuisinesHelper
+  include CuisineTypesHelper
   respond_to :html
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.where("user_id=?",current_user.id)
     respond_with(@restaurants)
   end
 
+  def list
+    @restaurants = Restaurant.all
+    @cuisine_type = CuisineType.select("name").group("name").order("name")
+    @areas = Restaurant.select("address1").group("address1").order("address1")
+    respond_with(@restaurants)
+  end
   def show
     @cusines_type = cuisines_type
     @id = @restaurant.id
-    @cuisines = Cuisine.where("restaurant_id=?",@id).order("cuisine_type,is_subcategory")
+    @cuisines = Cuisine.where("restaurant_id=?",@id).order("is_subcategory")
     respond_with(@restaurant)
+  end
+
+  def restaurant_profile
+    if !params[:id].blank?
+      @restaurant = Restaurant.find(params[:id])
+      @cuisines_sub_false = Cuisine.where("restaurant_id=? and is_subcategory=false",@restaurant.id)
+      @cuisines_sub_true = Cuisine.where("restaurant_id=? and is_subcategory=true",@restaurant.id)
+      @cusines_type = list_cuisnes_type(@restaurant.id)
+    else
+      redirect_to :controller => "restaurants",:action => "list"
+    end
   end
 
   def new

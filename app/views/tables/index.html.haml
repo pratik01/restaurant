@@ -15,19 +15,16 @@
     %table.table
       %tr
         %th Code
-        %th Capacity
-        %th
-        %th
+        %th Min Capacity
+        %th Max Capacity
         %th
 
       - @tables.each do |table|
         %tr
           %td= table.code
+          %td= table.min_capacity
           %td= table.capacity
-          %td= link_to 'Show', table
-          %td= link_to 'Edit', edit_table_path(table)
-          %td= link_to 'Destroy', table, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-
-
-
+          %td
+            = link_to 'Show', table
+            = link_to 'Edit', edit_table_path(table)
+            = link_to 'Destroy', table, :method => :delete, :data => { :confirm => 'Are you sure?' }

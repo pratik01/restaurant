@@ -8,9 +8,11 @@
   .row
     .col-md-12
       = render :partial => "components/restaurant_select_box",:locals => {:is_label=>"",:f=>f,:n=>"restaurant_id",:data=>@restaurants}
-    .col-md-6
+    .col-md-4
       = render :partial => "components/text_field" ,:locals => {:f=>f,:n=>"code",:txtLabel=>"Table No",:c=>""}
-    .col-md-6
+    .col-md-4
+      = render :partial => "components/number_field" ,:locals => {:f=>f,:n=>"min_capacity",:txtLabel=>"Min no of seat",:c=>""}
+    .col-md-4
       = render :partial => "components/number_field" ,:locals => {:f=>f,:n=>"capacity",:txtLabel=>"Max no of seat",:c=>""}
     .col-md-12
       = f.submit 'Save',:class=>"btn btn-primary"

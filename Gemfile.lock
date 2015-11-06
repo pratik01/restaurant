@@ -70,9 +70,16 @@ GEM
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
+    jquery-datatables-rails (3.3.0)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
+      sass-rails
     jquery-rails (3.1.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     json (1.8.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -157,7 +164,7 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.5.3)
       coffee-rails
-    tzinfo (0.3.44)
+    tzinfo (0.3.45)
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -175,7 +182,9 @@ DEPENDENCIES
   eventmachine (= 1.0.3)
   haml-rails
   jbuilder (~> 1.2)
+  jquery-datatables-rails
   jquery-rails
+  jquery-ui-rails
   mini_magick
   pg
   rails (= 4.0.0)

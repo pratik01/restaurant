@@ -2,12 +2,13 @@ class CuisinesController < ApplicationController
   before_action :set_cuisine, only: [:show, :edit, :update, :destroy]
   before_action :set_cuisine_type,only: [:new,:edit]
   before_action :set_restaurant,only: [:new,:edit]
-  include CuisinesHelper
+  include CuisineTypesHelper
   include RestaurantsHelper
   respond_to :html
 
   def index
-    @cuisines = Cuisine.all
+    @restaurant = Restaurant.where("user_id=?",current_user.id).first
+    @cuisines = Cuisine.where("restaurant_id=?",@restaurant.id)
     respond_with(@cuisines)
   end
 

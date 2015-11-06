@@ -12,8 +12,8 @@
       - @user = current_user
       - if @user.role.name=="admin"
         = render :partial => "components/admin_menu"
-      - else
-        = render :partial => "components/menu"
+      - elsif @user.role.name="owner"
+        = render :partial => "components/admin_menu"
     - else
       = render :partial =>"components/header1"
       = render :partial => "components/menu"

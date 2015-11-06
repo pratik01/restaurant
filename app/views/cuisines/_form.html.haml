@@ -19,7 +19,7 @@
         %label
           Cuisines Type
           %span.require *
-        = f.select(:cuisine_type,options_for_select(@cusines_type), {:include_blank => true},{:class=>"form-control input-sm"})
+        = f.select(:cuisine_type_id,options_for_select(@cusines_type.collect {|p| [ p.name, p.id ] }), {:include_blank => true},{:class=>"form-control input-sm"})
 
     .col-md-12
       .checkbox

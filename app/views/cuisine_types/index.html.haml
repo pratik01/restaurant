@@ -1,0 +1,27 @@
+.content
+  .header
+    %h1.page-title Cuisine Type
+    %ul.breadcrumb
+      %li.active Cuisine Type
+  .main-content
+    .btn-toolbar.list-toolbar
+      %a{:href=>new_cuisine_type_path,:class=>"btn btn-primary"}
+        %i.glyphicon.glyphicon-plus
+        New Cuisine Type
+      %button.btn.btn-default{:type=>"button"} Import
+      %button.btn.btn-default{:type=>"button"} Export
+    %table.table
+      %tr
+        %th Name
+        %th
+        %th
+        %th
+
+      - @cuisine_types.each do |cuisine_type|
+        %tr
+          %td= cuisine_type.name
+          %td= link_to 'Show', cuisine_type
+          %td= link_to 'Edit', edit_cuisine_type_path(cuisine_type)
+          %td= link_to 'Destroy', cuisine_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+

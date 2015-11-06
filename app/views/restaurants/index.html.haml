@@ -18,20 +18,36 @@
               %option{:value => "#?sort=rating&amp;order=DESC"} Rating (Highest)
               %option{:value => "#?sort=rating&amp;order=ASC"} Rating (Lowest)
       / BEGIN PRODUCT LIST
-      .row.product-list
+      .h-20
+      .row.product-list{:style=>"overflow:auto;height:500px;"}
         - @restaurants.each do |r|
-          .col-md-3.col-sm-3.col-xs-12
-            .product-item{:style=>"height:400px;"}
-              .pi-img-wrapper
-                %img.img-responsive{:src => "#{r.logo.to_s}",:style=>"height:230px;width:100%;"}
-              %h6
-                %a{:href => "item.html"}
-                  = r.name
-              .pi-price
-                = r.address1
-                = r.address2
-                = r.state
-                = r.city
-              .h-10{:style=>"height:10px;clear:both;"}
-              %a.btn.btn-default.add2cart{:href => "#","data-no-turbolink"=>true} Book
-              %a.btn.btn-default.add2cart{:href => "/restaurants/#{r.id}","data-no-turbolink"=>true} View More
+          .col-md-12
+            .panel.panel-default
+              .panel-body
+                .col-md-3{:style=>"padding-left:0px;"}
+                  %img.img-responsive{:src => "#{r.logo.to_s}",:style=>"margin-bottom:0px;height:150px;width:100%;",:class=>"thumbnail"}
+                .col-md-7
+                  %h2{:style=>"margin-top:0px;"}
+                    %a{:href => "/restaurants/#{r.id}"}
+                      = r.name
+                  %p
+                    .address
+                      %i.glyphicon.glyphicon-map-marker
+                      = r.address1
+                      ,
+                      = r.city
+                      %i.glyphicon.glyphicon-phone
+                      = r.contact1
+                  %p
+                    %i.glyphicon.glyphicon-time
+                    = r.delay_time
+                    Minutes
+                  %p
+                    %button{:type=>"button"}
+                      %i.glyphicon.glyphicon-thumbs-up
+                    %button{:type=>"button"}
+                      %i.glyphicon.glyphicon-heart
+                    Your Rating
+                .col-md-2
+                  %button{:type=>"button", :class=>"btn btn-default"}
+                    Write Review

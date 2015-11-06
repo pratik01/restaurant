@@ -1,0 +1,12 @@
+= form_for @cuisine_type do |f|
+  - if @cuisine_type.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@cuisine_type.errors.count, "error")} prohibited this cuisine_type from being saved:"
+      %ul
+        - @cuisine_type.errors.full_messages.each do |msg|
+          %li= msg
+
+  = render :partial => "components/text_field",:locals => {:f=>f,:n=>"name",:txtLabel=>"Cuisine Type Name",:c=>"required"}
+  .actions
+    = f.submit 'Save',:class=>"btn btn-primary"
+    = link_to "Back","/cuisine_types",:class=>"btn btn-default"

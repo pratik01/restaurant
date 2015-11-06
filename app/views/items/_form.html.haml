@@ -13,7 +13,7 @@
         %label
           Select Cuisine
           %span.require *
-        = f.select(:cuisine_id,@cuisine_sub_category.collect {|p| [ p.name, p.id ] }, {include_blank: ''},{:class=>"form-control input-sm"})
+        = f.select(:cuisine_id,@cuisine_sub_category.collect {|p| [ "#{p.cuisine_type.name} - #{p.name}", p.id ] }, {include_blank: ''},{:class=>"form-control input-sm"})
     .col-md-4
       = render :partial => "components/text_field",:locals => {:f=>f,:n=>"name",:txtLabel=>"Item Name",:c=>"required"}
     .col-md-4

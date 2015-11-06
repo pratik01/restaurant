@@ -1,5 +1,8 @@
 Myrestaurant::Application.routes.draw do
 
+
+  resources :cuisine_types
+
   resources :tables
 
   resources :amenitis
@@ -8,18 +11,31 @@ Myrestaurant::Application.routes.draw do
 
   resources :cuisines
 
-  root "home#index"
+
   resources :banquet_halls
 
   resources :restaurant_features
 
   resources :restaurants do
+    collection do
+      get "list"
+      get "restaurant_profile"
+    end
     resources :reviews,:tables
+
   end
 
   resources :customers
-
   devise_for :users
+
+  devise_scope :users do
+    authenticated :user do
+      root 'admin_dashboard#index', as: :authenticated_root
+    end
+    unauthenticated do
+      root 'home#index', as: :root
+    end
+  end
 
   resources :menus
   TheRoleManagementPanel::Routes.mixin(self)

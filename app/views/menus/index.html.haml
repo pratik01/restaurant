@@ -9,13 +9,8 @@
       .col-md-3
         - @cusines_type.each do |ct|
           .list-group{:style=>"margin-bottom:0px;"}
-            %a.list-group-item{:href=>"##{ct.to_s}",:style=>"font-weight:bold;"}
-              =ct.to_s
-        - @cuisines.each do |c|
-          - if c.is_subcategory==true
-            .list-group{:style=>"margin-bottom:0px;"}
-              %a.list-group-item{:href=>"##{c.name}",:style=>"font-weight:bold;"}
-                =c.name
+            %a.list-group-item{:href=>"##{ct.name}",:style=>"font-weight:bold;"}
+              =ct.name
       .col-md-9
         .col-md-12{:style=>"padding-right:18px !important;"}
           .pull-left
@@ -30,24 +25,27 @@
           - @cusines_type.each do |ct|
             .panel.panel-default{:id=>"#{ct.to_s}"}
               .panel-heading
-                =ct.to_s
+                =ct.name
               .panel-body
-                - @cuisines.each do |c|
-                  - if (ct.to_s == c.cuisine_type) && (c.is_subcategory==false)
-                    %table.table.table-bordered{:style=>"margin-bottom:0px;"}
-                      %tr
-                        %td{:width=>250}
-                          =c.name
-                        %td
-                          =c.price
-                  - elsif (ct.to_s == c.cuisine_type) && (c.is_subcategory==true)
-                    .col-md-12{:style=>"padding-top:10px;padding-left:0px;padding-right:0px;"}
-                      .panel.panel-default
-                        .panel-heading
-                          =c.name
-                        %table.table.table-bordered
-                          - c.items.each do |i|
-                            %tr
-                              %td{:width=>250}
-                                =i.name
-                              %td=i.price
+                - if !@cuisines_sub_false.blank?
+                  %table.table.table-bordered{:style=>"margin-bottom:0px;"}
+                    - @cuisines_sub_false.each do |c|
+                      - if (ct.name == c.cuisine_type.name) && (c.is_subcategory==false)
+                        %tr
+                          %td{:width=>250}
+                            =c.name
+                          %td
+                            =c.price
+                - if !@cuisines_sub_true.blank?
+                  - @cuisines_sub_true.each do |c|
+                    - if (ct.name == c.cuisine_type.name) && (c.is_subcategory==true)
+                      .col-md-12{:style=>"padding-top:10px;padding-left:0px;padding-right:0px;"}
+                        .panel.panel-default
+                          .panel-heading
+                            =c.name
+                          %table.table.table-bordered
+                            - c.items.each do |i|
+                              %tr
+                                %td{:width=>250}
+                                  =i.name
+                                %td=i.price

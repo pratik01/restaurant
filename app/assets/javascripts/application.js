@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery-cookie
 //= require country
 //= require bootstrap-min
+//= require dataTables/jquery.dataTables
 //= require jqueryknob
 //= require_tree .
 $(function() {

@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_cuisine_sub_category, only: [:new,:edit]
-  before_action :login_required, except: [ :index, :show ]
-  before_action :role_required,  except: [ :index, :show ]
-  respond_to :html
+  respond_to :html,:json
   include CuisinesHelper
   def index
-    @items = Item.all
+    @restaurant = Restaurant.where("user_id=?",current_user.id).first
+    @items = Item.joins(:cuisine).where("cuisines.restaurant_id=?",@restaurant.id)
     respond_with(@items)
   end
 

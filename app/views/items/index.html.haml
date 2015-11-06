@@ -10,26 +10,27 @@
         New Item
       %button.btn.btn-default{:type=>"button"} Import
       %button.btn.btn-default{:type=>"button"} Export
-    %table.table
+    %table.table#items
       %tr
+        %th Image
+        %th Cuisine Type
+        %th Cuisine
         %th Name
         %th Price
         %th Description
-        %th Status
         %th
         %th
         %th
-
-      - @items.each do |item|
-        %tr
-          %td= item.name
-          %td= item.price
-          %td= item.description
-          %td= item.status
-          %td= link_to 'Show', item
-          %td= link_to 'Edit', edit_item_path(item)
-          %td= link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-
-
-
+      - if !@items.blank?
+        - @items.each do |item|
+          %tr
+            %td
+              %img{:src=>"#{item.image.to_s}", :style=>"height:80px;width:100px;"}
+            %td= item.cuisine.cuisine_type.name
+            %td= item.cuisine.name
+            %td= item.name
+            %td= item.price
+            %td= item.description
+            %td= link_to 'Show', item
+            %td= link_to 'Edit', edit_item_path(item)
+            %td= link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }

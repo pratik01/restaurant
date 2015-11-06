@@ -37,7 +37,8 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'the_role'
-
+gem 'jquery-ui-rails'
+gem 'jquery-datatables-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
