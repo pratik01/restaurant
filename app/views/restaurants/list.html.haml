@@ -11,7 +11,7 @@
               %label
                 %input{:type => "checkbox",:value=>"#{c.name}"}
                   \&nbsp;#{c.name}
-    .panel.panel-default
+    .panel.panel-primary
       .panel-heading
         Area
       .panel-body{:style=>"max-height:250px;overflow:auto;"}
@@ -25,8 +25,13 @@
   .col-md-8{:style=>"border:1px solid;"}
     .col-md-12.col-sm-12
       .row.list-view-sorting.clearfix
-        .col-md-2.col-sm-2
-        .col-md-10.col-sm-10
+        .col-md-8.col-sm-8
+          .h-20
+          .input-group
+            %input.form-control{:placeholder => "Search", :type => "text"}
+              %span.input-group-btn
+                %button.btn.btn-primary{:type => "button"} Go
+        .col-md-4.col-sm-4
           .pull-right
             %label.control-label Sort&nbsp;By:
             %select.form-control.input-sm
@@ -40,7 +45,7 @@
       .row.product-list
         - @restaurants.each do |r|
           .col-md-12
-            .panel.panel-default
+            .panel.panel-primary
               .panel-body
                 .col-md-3{:style=>"padding-left:0px;"}
                   %img.img-responsive{:src => "#{r.logo.to_s}",:style=>"margin-bottom:0px;height:130px;width:100%;",:class=>"thumbnail"}

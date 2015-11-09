@@ -4,7 +4,7 @@ class CuisinesController < ApplicationController
   before_action :set_restaurant,only: [:new,:edit]
   include CuisineTypesHelper
   include RestaurantsHelper
-  respond_to :html
+  respond_to :html,:json
 
   def index
     @restaurant = Restaurant.where("user_id=?",current_user.id).first

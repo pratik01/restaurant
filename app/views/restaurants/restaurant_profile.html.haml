@@ -67,7 +67,8 @@
                                 - group.each do |c|
                                   - if (ct.name == c.cuisine_type.name) && (c.is_subcategory==false)
                                     %td{:width=>250}
-                                      =c.name
+                                      %a.addToCartModal{:href=>"javascript:void(0);","data-id"=>"#{c.id}","data-for"=>"cuisine"}
+                                        =c.name
                                     %td
                                       =c.price
                         - if !@cuisines_sub_true.blank?
@@ -82,7 +83,7 @@
                                       %tr
                                         - item.each do |i|
                                           %td{:width=>300}
-                                            %a.itemName{"data-toggle" => "modal",:href=>"javascript:void(0)","data-id"=>"#{i.id}"}
+                                            %a.addToCartModal{"data-toggle" => "modal",:href=>"javascript:void(0)","data-for"=>"item","data-id"=>"#{i.id}"}
                                               =i.name
                                           %td=i.price
 
@@ -93,8 +94,9 @@
     .col-md-3
       .panel.panel-default
         .panel-heading
-          Order Summary
+          %b Order Summary
         .panel-body
+          #orderSummary
 #myModal.modal.fade{:role => "dialog"}
   .modal-dialog
     .modal-content
@@ -124,16 +126,24 @@
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
 :javascript
   $(document).ready(function(){
-    $(".itemName").click(function(){
+    orderSummary();
+    $(".addToCartModal").click(function(){
       var id = $(this).attr("data-id");
+      var data_for = $(this).attr("data-for");
+      var url = "";
+      if(data_for=="item"){
+        url = "/items/"+id;
+      }else if(data_for=="cuisine"){
+        url = "/cuisines/"+id
+      }
       if(id){
         $.ajax({
-          url : "/items/"+id,
+          url : url,
           type : "GET",
           contentType : "application/json",
           dataType : "json",
           success : function(data) {
-            var itemData = '<h4 style="margin:0px;">'+data.name+'</h4>';
+            var itemData = '<form id="frm_add_to_cart"><h4 style="margin:0px;">'+data.name+'</h4>';
             itemData += '<br><b>Food Diet:</b><br><br>';
             itemData +='<div class="col-sm-12"><div class="btn-group" data-toggle="buttons">';
             if(data.is_veg){
@@ -155,12 +165,18 @@
             itemData += '<label class="btn btn-default"><input type="radio" name="tast" value="spicy">Spicy</label>';
             itemData += '</div></div><br><br>'
             itemData += '<textarea class="form-control" id="addtional_comment" placeholder="Special instrucation"></textarea>';
+            itemData += '</form>';
             $("#itemData").html(itemData);
             $("#itemPrice").html("<b>"+data.price+" Rs.</b>");
             $("#restaurant_name").val("#{@restaurant.name}");
             $("#icprice").val(data.price);
             $("#ic_id").val(data.id);
-            $("#itemName").val(data.name);
+            if(data_for=="item"){
+              $("#itemName").val(data.name);
+            }else{
+              $("#cuisineName").val(data.name);
+            }
+
             $("#myModal").modal("show");
           }
         });
@@ -175,9 +191,11 @@
     var icprice = $("#icprice").val();
     var ic_id = $("#ic_id").val();
     var qty = $("#qty").val();
+    var form = $("#frm_add_to_cart");
     var food_diet = $('input[name=dite]:checked').val();
     var food_test = $('input[name=tast]:checked').val();
     var comment = $("#addtional_comment").val();
+    var cart = $.cookie("cart");
     var item = {
       ic_id:ic_id,
       cuisineName:cuisineName,
@@ -188,11 +206,87 @@
       food_test:food_test,
       comment:comment
     }
-    var cart = {
-      restaurant_name:restaurant_name,
-      item:item
-    }
-    $.cookie("cart",JSON.stringify(cart));
+    console.log(item);
     var cart = $.cookie("cart");
-    console.log($.cookie("cart"));
+    if(cart!="" && cart!=undefined){
+      cart = jQuery.parseJSON(cart);
+      var rname = cart.restaurant_name;
+      if(rname!=restaurant_name){
+        $.removeCookie('cart');
+        var items = [];
+        items.push(item);
+        cart = {
+          restaurant_name:restaurant_name,
+          items:items
+        }
+        $.cookie("cart",JSON.stringify(cart));
+        var cart = $.cookie("cart");
+        orderSummary();
+      }else{
+        var items = cart.items;
+        if(items!=undefined && items!=""){
+          console.log(items);
+          items.push(item);
+          console.log(items);
+          cart = {
+            restaurant_name:restaurant_name,
+            items:items
+          }
+          $.cookie("cart",JSON.stringify(cart));
+          var cart = $.cookie("cart");
+          orderSummary();
+        }
+      }
+    }else{
+      var items = [];
+      items.push(item);
+      cart = {
+        restaurant_name:restaurant_name,
+        items:items
+      }
+      $.cookie("cart",JSON.stringify(cart));
+      var cart = $.cookie("cart");
+      orderSummary();
+    }
+
   });
+  function orderSummary(){
+    var cart = $.cookie("cart");
+    if(cart!="" && cart!=undefined){
+      cart = jQuery.parseJSON(cart);
+      var data = "<h4>Restaurant Name : "+cart.restaurant_name+"</h4>";
+      var items = cart.items;
+      data += '<table class="table"><thead><th>Items</th><th>Price</th></thead><tbody>';
+      var subTotal = 0;
+      for(var i=0;i<items.length;i++){
+        data += "<tr>";
+        data += '<td>';
+        if(items[i].cuisineName!=""){
+          data += "<p>"+items[i].cuisineName+"</p>";
+        }else if(items[i].itemName!=""){
+          data += "<p>"+items[i].itemName+"</p>";
+        }
+        data += '<p style="font-size:10px;">Qty : <b>'+items[i].qty+'</b><br>';
+        if(items[i].food_diet=="is_veg"){
+          data += 'Food Diet : <b>Veg</b><br>';
+        }else if(items[i].food_diet=="is_nonveg"){
+          data += 'Food Diet : <b>Non Veg</b><br>';
+        }else if(items[i].food_diet=="is_swaminarayan"){
+          data += 'Food Diet : <b>Swaminarayan</b><br>';
+        }else if(items[i].food_diet=="is_jain"){
+          data += 'Food Diet : <b>Jain</b><br>';
+        }
+        data += 'Food Test : <b>'+items[i].food_test+'</b></p>';
+        data += "</td>";
+        data += "<td><p>"+items[i].icprice+"</p></td>";
+        data += "</tr>";
+        subTotal = subTotal + eval(items[i].icprice);
+      }
+      data += '<tr>';
+      data += '<td><b>Total</b></td>';
+      data += '<td><b>'+subTotal+'</b></td>';
+      data += '</tr>';
+      $("#orderSummary").html(data);
+    }
+
+  }
