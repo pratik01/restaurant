@@ -1,0 +1,37 @@
+= form_for @book_table do |f|
+  - if @book_table.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@book_table.errors.count, "error")} prohibited this book_table from being saved:"
+      %ul
+        - @book_table.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :firstName
+    = f.text_field :firstName
+  .field
+    = f.label :lastName
+    = f.text_field :lastName
+  .field
+    = f.label :contact1
+    = f.text_field :contact1
+  .field
+    = f.label :contact2
+    = f.text_field :contact2
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :booking_date
+    = f.date_select :booking_date
+  .field
+    = f.label :booking_time
+    = f.time_select :booking_time
+  .field
+    = f.label :no_of_guest
+    = f.number_field :no_of_guest
+  .field
+    = f.label :message
+    = f.text_area :message
+  .actions
+    = f.submit 'Save'

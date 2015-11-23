@@ -17,7 +17,26 @@
           %a{:href=>"/carts/"}
             %i.glyphicon.glyphicon-shopping-cart
             Cart
-        %li
-          %a{:href=>"/users/sign_in"} Login
-        %li
-          %a{:href=>"/users/sign_up"} Sign Up
+        - if user_signed_in?
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              My Account
+              %span.caret
+            %ul.dropdown-menu{:style=>"padding-bottom:0px;"}
+              %li
+                %a{:href => "#"} Profile
+              - @user = current_user
+              - if @user.role.name=="admin"
+                %li
+                  %a{:href=>"/owner/restaurants"} Manage Restaurant
+              %li
+                %a{:href=>"#"} My Order History
+              %li.divider{:role => "separator",:style=>"margin:0px;"}
+              %li.btn-primary
+                %a{:href => "/users/sign_out","data-method"=>"delete",:style=>"color:white;", :tabindex => "-1"}
+                  %b Logout
+        -else
+          %li
+            %a{:href=>"/users/sign_in"} Login
+          %li
+            %a{:href=>"/users/sign_up"} Sign Up

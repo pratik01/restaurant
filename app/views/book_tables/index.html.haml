@@ -1,0 +1,35 @@
+%h1 Listing book_tables
+
+%table
+  %tr
+    %th Firstname
+    %th Lastname
+    %th Contact1
+    %th Contact2
+    %th Email
+    %th Booking date
+    %th Booking time
+    %th No of guest
+    %th Message
+    %th
+    %th
+    %th
+
+  - @book_tables.each do |book_table|
+    %tr
+      %td= book_table.firstName
+      %td= book_table.lastName
+      %td= book_table.contact1
+      %td= book_table.contact2
+      %td= book_table.email
+      %td= book_table.booking_date
+      %td= book_table.booking_time
+      %td= book_table.no_of_guest
+      %td= book_table.message
+      %td= link_to 'Show', book_table
+      %td= link_to 'Edit', edit_book_table_path(book_table)
+      %td= link_to 'Destroy', book_table, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Book table', new_book_table_path

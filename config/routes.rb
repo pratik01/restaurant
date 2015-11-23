@@ -1,30 +1,21 @@
 Myrestaurant::Application.routes.draw do
 
-
-  resources :cuisine_types
-
-  resources :tables
-
-  resources :amenitis
-
-  resources :items
-
-  resources :cuisines
-
-
-  resources :banquet_halls
-
-  resources :restaurant_features
-
-  resources :restaurants do
-    collection do
-      get "list"
-      get "restaurant_profile"
+  scope "/owner" do
+    resources :cuisine_types,:tables,:restaurant_features
+    resources :amenitis,:items,:cuisines,:banquet_halls,:menus
+    resources :restaurants do
+      collection do
+        get "list"
+        get "restaurant_profile"
+      end
+      resources :reviews,:tables
     end
-    resources :reviews,:tables
-
   end
-
+  resources :items
+  resources :book_tables
+  get "restaurants/list"
+  get "restaurants/restaurant_profile"
+  resources :carts
   resources :customers
   devise_for :users
 
@@ -36,8 +27,6 @@ Myrestaurant::Application.routes.draw do
       root 'home#index', as: :root
     end
   end
-
-  resources :menus
   TheRoleManagementPanel::Routes.mixin(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

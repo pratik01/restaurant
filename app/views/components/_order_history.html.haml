@@ -1,0 +1,49 @@
+.h-20
+.panel.panel-primary
+  .panel-heading
+    %b Order Summary
+  .panel-body{:style=>"min-height:50px;"}
+    #orderSummary
+      %p.text-center
+        %b No Order
+:javascript
+  function orderSummary(){
+    var cart = $.cookie("cart");
+    if(cart!="" && cart!=undefined){
+      cart = jQuery.parseJSON(cart);
+      var data = "<h4>Restaurant Name : "+cart.restaurant_name+"</h4>";
+      var items = cart.items;
+      data += '<table class="table"><thead><th>Items</th><th>Price</th></thead><tbody>';
+      var subTotal = 0;
+      for(var i=0;i<items.length;i++){
+        data += "<tr>";
+        data += '<td>';
+        if(items[i].cuisineName!=""){
+          data += "<p>"+items[i].cuisineName+"</p>";
+        }else if(items[i].itemName!=""){
+          data += "<p>"+items[i].itemName+"</p>";
+        }
+        data += '<p style="font-size:10px;">Qty : <b>'+items[i].qty+'</b> &nbsp;Price : <b>'+items[i].icprice+'</b><br>';
+        if(items[i].food_diet=="is_veg"){
+          data += 'Food Diet : <b>Veg</b><br>';
+        }else if(items[i].food_diet=="is_nonveg"){
+          data += 'Food Diet : <b>Non Veg</b><br>';
+        }else if(items[i].food_diet=="is_swaminarayan"){
+          data += 'Food Diet : <b>Swaminarayan</b><br>';
+        }else if(items[i].food_diet=="is_jain"){
+          data += 'Food Diet : <b>Jain</b><br>';
+        }
+        data += 'Food Test : <b>'+items[i].food_test+'</b></p>';
+        data += "</td>";
+        var price = eval(items[i].icprice) * eval(items[i].qty);
+        data += "<td><p>"+price+"</p></td>";
+        data += "</tr>";
+        subTotal = subTotal + eval(price);
+      }
+      data += '<tr>';
+      data += '<td><b>Total</b></td>';
+      data += '<td><b>'+subTotal+'</b></td>';
+      data += '</tr>';
+      $("#orderSummary").html(data);
+    }
+  }

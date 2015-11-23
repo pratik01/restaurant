@@ -1,29 +1,50 @@
-.container-fluid
+:css
+  .topMain{
+    background: black;
+    min-height: 210px;
+    width: 100%;
+    background-repeat: round;
+  }
+
+.container-fluid.topMain
   .h-20
-  .row
-    .col-md-2
-      %img{:src=>"#{@restaurant.logo.to_s}",:class=>"thumbnail",:style=>"width:100%;height:150px;"}
-    .col-md-6
-      %h2{:style=>"margin-top:0px;"}
-        =@restaurant.name
-      %p
-        %i.glyphicon.glyphicon-map-marker
-        #{@restaurant.address1},#{@restaurant.city}
-        %i.glyphicon.glyphicon-phone
-        #{@restaurant.contact1}
-      %p
-        %i.glyphicon.glyphicon-time
-        #{@restaurant.delay_time} Minutes
-      %p
-        %button{:type=>"button"}
-          %i.glyphicon.glyphicon-thumbs-up
-        %button{:type=>"button"}
-          %i.glyphicon.glyphicon-heart
-        Your Rating
-  .row
-    .col-md-9
-      / Nav tabs
-      .card
+  .container
+    .row
+      .col-md-2{:style=>"padding-left:0px;"}
+        %img{:src=>"#{@restaurant.logo.to_s}",:class=>"thumbnail",:style=>"height:150px;width:100%"}
+      .col-md-8
+        %h1{:style=>"margin-top:0px;color:white;font-weight: bold;"}
+          =@restaurant.name
+        %p{:style=>"color:white;font-weight:bold;"}
+          %i.glyphicon.glyphicon-map-marker
+          #{@restaurant.address1},#{@restaurant.city}
+          %i.glyphicon.glyphicon-phone
+          #{@restaurant.contact1}
+        %p{:style=>"color:white;"}
+          %i.glyphicon.glyphicon-time
+          #{@restaurant.delay_time} Minutes
+        %p{:style=>"color:white;"}
+          %button{:type=>"button",:style=>"color:black;"}
+            %i.glyphicon.glyphicon-thumbs-up
+          %button{:type=>"button",:style=>"color:black;"}
+            %i.glyphicon.glyphicon-heart
+          Your Rating
+      .col-md-2
+        %button.btn.btn-block{:type=>"button"} Write Review
+        .h-20
+        %p{:style=>"color:white;"}
+          Share On
+        %a.btn.btn-social-icon.btn-twitter
+          %span.fa.fa-twitter
+        %a.btn.btn-social-icon.btn-facebook
+          %span.fa.fa-facebook
+        %a.btn.btn-social-icon.btn-google
+          %span.fa.fa-google-plus
+        %a.btn.btn-social-icon.btn-linkedin
+          %span.fa.fa-linkedin
+        .h-20
+    .row
+      .card{:style=>"margin-bottom:1px;"}
         %ul.nav.nav-tabs{:role => "tablist"}
           %li.active{:role => "presentation"}
             %a{"aria-controls" => "food_menu", "data-toggle" => "tab", :href => "#food_menu", :role => "tab"} Food Menu
@@ -35,258 +56,23 @@
             %a{"aria-controls" => "images", "data-toggle" => "tab", :href => "#images", :role => "tab"} Images
           %li{:role => "presentation"}
             %a{"aria-controls" => "reviews", "data-toggle" => "tab", :href => "#reviews", :role => "tab"} Reviews
-        / Tab panes
-        .tab-content
-          #food_menu.tab-pane.active{:role => "tabpanel"}
-            .row
-              .col-md-2{:style=>"padding:0px;"}
-                - @cusines_type.each do |ct|
-                  .list-group{:style=>"margin-bottom:0px;"}
-                    %a.list-group-item{:href=>"##{ct.name}",:style=>"font-weight:bold;"}
-                      =ct.name
-              .col-md-10
-                .col-md-12{:style=>"padding:0px !important;"}
-                  .pull-left
-                    %input{:type=>"text",:class=>"form-control input-sm",:placeholder=>"Search"}
-                  .pull-right
-                    %button.btn.btn-primary.btn-sm{:type=>"button"}
-                      List
-                    %button.btn.btn-default.btn-sm{:type=>"button"}
-                      Grid
-                .h-10{:style=>"height:10px;clear:both;"}
-                .col-md-12{:style=>"padding:0px !important;"}
-                  - @cusines_type.each do |ct|
-                    .panel.panel-default{:id=>"#{ct.name}"}
-                      .panel-heading
-                        %b=ct.name
-                      .panel-body
-                        - if !@cuisines_sub_false.blank?
-                          %table.table.table-bordered.table-responsive{:style=>"margin-bottom:0px;"}
-                            - @cuisines_sub_false.in_groups_of(2) do |group|
-                              %tr
-                                - group.each do |c|
-                                  - if (ct.name == c.cuisine_type.name) && (c.is_subcategory==false)
-                                    %td{:width=>250}
-                                      %a.addToCartModal{:href=>"javascript:void(0);","data-id"=>"#{c.id}","data-for"=>"cuisine"}
-                                        =c.name
-                                    %td
-                                      =c.price
-                        - if !@cuisines_sub_true.blank?
-                          - @cuisines_sub_true.each do |c|
-                            - if (ct.name == c.cuisine_type.name) && (c.is_subcategory==true)
-                              .col-md-12{:style=>"padding-top:10px;padding-left:0px;padding-right:0px;"}
-                                .panel.panel-default
-                                  .panel-heading
-                                    %b=c.name
-                                  %table.table.table-bordered.table-responsive{:style=>"margin-top:0px;"}
-                                    - c.items.to_a.in_groups_of(2,false) do |item|
-                                      %tr
-                                        - item.each do |i|
-                                          %td{:width=>300}
-                                            %a.addToCartModal{"data-toggle" => "modal",:href=>"javascript:void(0)","data-for"=>"item","data-id"=>"#{i.id}"}
-                                              =i.name
-                                          %td=i.price
+.container-fluid
+  .row{:style=>"background:#F2EDD8;"}
+    .col-md-9{:style=>"padding:0px;"}
+      .tab-content
+        #food_menu.tab-pane.active{:role => "tabpanel"}
+          .row
+            = render :partial => "menu_components/r_menu"
 
-          #tables.tab-pane{:role => "tabpanel"}
-          #information.tab-pane{:role => "tabpanel"} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          #images.tab-pane{:role => "tabpanel"} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          #reviews.tab-pane{:role => "tabpanel"} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..
-    .col-md-3
-      .panel.panel-default
-        .panel-heading
-          %b Order Summary
-        .panel-body
-          #orderSummary
-#myModal.modal.fade{:role => "dialog"}
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{"data-dismiss" => "modal", :type => "button"} &times;
-        %h2.modal-title #{@restaurant.name}
-      .modal-body
-        #itemData
-        #dataValue
-          %input{:type=>"hidden",:id=>"ic_id"}
-          %input{:type=>"hidden",:id=>"restaurant_name"}
-          %input{:type=>"hidden", :id=>"cuisineName"}
-          %input{:type=>"hidden", :id=>"itemName"}
-          %input{:type=>"hidden", :id=>"icprice"}
-      .modal-footer
-        .pull-left
-          .col-md-5{:style=>"padding-right:0px;"}
-            .form-group
-              %label.col-sm-1.control-label{:style=>"padding-top:5px;padding-left:0px;"}
-                %b Qty
-              .col-sm-10
-                %input{:type=>"number",:class=>"form-control",:id=>"qty",:min=>1 ,:value=>"1"}
-          .col-md-6
-            .form-group
-              %label#itemPrice.col-sm-7.control-label{:style=>"padding-top:5px;"} 85.00Rs
-        %button.btn.btn-primary{:type=>"button",:id=>"addToCart"} Add To Cart
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+        #tables.tab-pane{:role => "tabpanel"}
+          .row
+            = render :partial => "components/book_table"
+        #information.tab-pane{:role => "tabpanel"} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        #images.tab-pane{:role => "tabpanel"} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        #reviews.tab-pane{:role => "tabpanel"} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..
+    .col-md-3{:style=>"padding-top:15px;"}
+      = render :partial => "components/order_history"
 :javascript
   $(document).ready(function(){
     orderSummary();
-    $(".addToCartModal").click(function(){
-      var id = $(this).attr("data-id");
-      var data_for = $(this).attr("data-for");
-      var url = "";
-      if(data_for=="item"){
-        url = "/items/"+id;
-      }else if(data_for=="cuisine"){
-        url = "/cuisines/"+id
-      }
-      if(id){
-        $.ajax({
-          url : url,
-          type : "GET",
-          contentType : "application/json",
-          dataType : "json",
-          success : function(data) {
-            var itemData = '<form id="frm_add_to_cart"><h4 style="margin:0px;">'+data.name+'</h4>';
-            itemData += '<br><b>Food Diet:</b><br><br>';
-            itemData +='<div class="col-sm-12"><div class="btn-group" data-toggle="buttons">';
-            if(data.is_veg){
-              itemData += '<label class="btn btn-default"><input type="radio" name="dite" value="is_veg"> Veg</label>';
-            }
-            if(data.is_nonveg){
-               itemData += '<label class="btn btn-default"><input type="radio" name="dite" value="is_nonveg"> Non Veg</label>';
-            }
-            if(data.is_swaminarayan){
-              itemData += '<label class="btn btn-default"><input type="radio" name="dite" value="is_swaminarayan"> Swaminarayan</label>';
-            }
-            if(data.is_jain){
-              itemData += '<label class="btn btn-default"><input type="radio" name="dite" value="is_jain"> Jain</label>';
-            }
-            itemData += '</div></div><br><br>'
-            itemData += '<br><b>Food Taste:</b><br><br>';
-            itemData +='<div class="col-sm-12"><div class="btn-group" data-toggle="buttons">';
-            itemData += '<label class="btn btn-default"><input type="radio" name="tast" value="medium"> Medium</label>';
-            itemData += '<label class="btn btn-default"><input type="radio" name="tast" value="spicy">Spicy</label>';
-            itemData += '</div></div><br><br>'
-            itemData += '<textarea class="form-control" id="addtional_comment" placeholder="Special instrucation"></textarea>';
-            itemData += '</form>';
-            $("#itemData").html(itemData);
-            $("#itemPrice").html("<b>"+data.price+" Rs.</b>");
-            $("#restaurant_name").val("#{@restaurant.name}");
-            $("#icprice").val(data.price);
-            $("#ic_id").val(data.id);
-            if(data_for=="item"){
-              $("#itemName").val(data.name);
-            }else{
-              $("#cuisineName").val(data.name);
-            }
-
-            $("#myModal").modal("show");
-          }
-        });
-      }
-
-    });
   });
-  $("#addToCart").click(function(){
-    var restaurant_name = $("#restaurant_name").val();
-    var cuisineName = $("#cuisineName").val();
-    var itemName = $("#itemName").val();
-    var icprice = $("#icprice").val();
-    var ic_id = $("#ic_id").val();
-    var qty = $("#qty").val();
-    var form = $("#frm_add_to_cart");
-    var food_diet = $('input[name=dite]:checked').val();
-    var food_test = $('input[name=tast]:checked').val();
-    var comment = $("#addtional_comment").val();
-    var cart = $.cookie("cart");
-    var item = {
-      ic_id:ic_id,
-      cuisineName:cuisineName,
-      itemName:itemName,
-      icprice:icprice,
-      qty:qty,
-      food_diet:food_diet,
-      food_test:food_test,
-      comment:comment
-    }
-    console.log(item);
-    var cart = $.cookie("cart");
-    if(cart!="" && cart!=undefined){
-      cart = jQuery.parseJSON(cart);
-      var rname = cart.restaurant_name;
-      if(rname!=restaurant_name){
-        $.removeCookie('cart');
-        var items = [];
-        items.push(item);
-        cart = {
-          restaurant_name:restaurant_name,
-          items:items
-        }
-        $.cookie("cart",JSON.stringify(cart));
-        var cart = $.cookie("cart");
-        orderSummary();
-      }else{
-        var items = cart.items;
-        if(items!=undefined && items!=""){
-          console.log(items);
-          items.push(item);
-          console.log(items);
-          cart = {
-            restaurant_name:restaurant_name,
-            items:items
-          }
-          $.cookie("cart",JSON.stringify(cart));
-          var cart = $.cookie("cart");
-          orderSummary();
-        }
-      }
-    }else{
-      var items = [];
-      items.push(item);
-      cart = {
-        restaurant_name:restaurant_name,
-        items:items
-      }
-      $.cookie("cart",JSON.stringify(cart));
-      var cart = $.cookie("cart");
-      orderSummary();
-    }
-
-  });
-  function orderSummary(){
-    var cart = $.cookie("cart");
-    if(cart!="" && cart!=undefined){
-      cart = jQuery.parseJSON(cart);
-      var data = "<h4>Restaurant Name : "+cart.restaurant_name+"</h4>";
-      var items = cart.items;
-      data += '<table class="table"><thead><th>Items</th><th>Price</th></thead><tbody>';
-      var subTotal = 0;
-      for(var i=0;i<items.length;i++){
-        data += "<tr>";
-        data += '<td>';
-        if(items[i].cuisineName!=""){
-          data += "<p>"+items[i].cuisineName+"</p>";
-        }else if(items[i].itemName!=""){
-          data += "<p>"+items[i].itemName+"</p>";
-        }
-        data += '<p style="font-size:10px;">Qty : <b>'+items[i].qty+'</b><br>';
-        if(items[i].food_diet=="is_veg"){
-          data += 'Food Diet : <b>Veg</b><br>';
-        }else if(items[i].food_diet=="is_nonveg"){
-          data += 'Food Diet : <b>Non Veg</b><br>';
-        }else if(items[i].food_diet=="is_swaminarayan"){
-          data += 'Food Diet : <b>Swaminarayan</b><br>';
-        }else if(items[i].food_diet=="is_jain"){
-          data += 'Food Diet : <b>Jain</b><br>';
-        }
-        data += 'Food Test : <b>'+items[i].food_test+'</b></p>';
-        data += "</td>";
-        data += "<td><p>"+items[i].icprice+"</p></td>";
-        data += "</tr>";
-        subTotal = subTotal + eval(items[i].icprice);
-      }
-      data += '<tr>';
-      data += '<td><b>Total</b></td>';
-      data += '<td><b>'+subTotal+'</b></td>';
-      data += '</tr>';
-      $("#orderSummary").html(data);
-    }
-
-  }

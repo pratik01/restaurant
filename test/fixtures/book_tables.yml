@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  firstName: MyString
+  lastName: MyString
+  contact1: MyString
+  contact2: MyString
+  email: MyString
+  booking_date: 2015-11-17
+  booking_time: 2015-11-17 17:38:55
+  no_of_guest: 1
+  message: MyText
+
+two:
+  firstName: MyString
+  lastName: MyString
+  contact1: MyString
+  contact2: MyString
+  email: MyString
+  booking_date: 2015-11-17
+  booking_time: 2015-11-17 17:38:55
+  no_of_guest: 1
+  message: MyText

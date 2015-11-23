@@ -1,0 +1,77 @@
+.container
+  .h-20
+  .card{:style=>"margin-bottom:1px;"}
+    %ul.nav.nav-tabs{:role => "tablist"}
+      %li.active{:role => "presentation"}
+        %a{"aria-controls" => "food_menu", "data-toggle" => "tab", :href => "#carts", :role => "tab"} Pre order carts
+  .tab-content{:style=>"background:white;"}
+    #carts.tab-pane.active{:role => "tabpanel"}
+:javascript
+  $(document).ready(function(){
+    orderSummary();
+  });
+  function orderSummary(){
+    var cart = $.cookie("cart");
+    console.log(cart);
+    if(cart!="" && cart!=undefined){
+      cart = jQuery.parseJSON(cart);
+      var table_data = '<h3><b>Restaurant : '+cart.restaurant_name+'</b></h3><br>';
+      table_data += '<table class="table">';
+      var items = cart.items;
+      var subTotal = 0;
+      table_data += '<thead>';
+      table_data += '<th>ITEM</th>';
+      table_data += '<th>QTY</th>';
+      table_data += '<th>PRICE</th>';
+      table_data += "<th>SUB TOTAL<?th>";
+      table_data += "</thead>"
+      for(var i=0;i<items.length;i++){
+        table_data += '<tr>';
+        table_data += '<td>';
+        if(items[i].itemName!="" && items[i].itemName!=undefined){
+          table_data += items[i].itemName;
+        }else if(items[i].cuisineName!="" && items[i].cuisineName!=undefined){
+          table_data += items[i].cuisineName;
+        }
+        if(items[i].food_diet=="is_veg"){
+          table_data += '<br><br><p>Food Diet : <b>Veg</b>'
+        }else if(items[i].food_diet=="is_nonveg"){
+          table_data += '<br><br><p>Food Diet : <b>Non Veg</b>'
+        }else if(items[i].food_diet=="is_swaminarayan"){
+          table_data += '<br><br><p>Food Diet : <b>Swaminarayan</b>'
+        }else if(items[i].food_diet=="is_jain"){
+          table_data += '<br><br><p>Food Diet : <b>Jain</b>'
+        }
+
+        table_data += '<br>Food test : <b>'+items[i].food_test+'</b></p>';
+        table_data += '</td>';
+        table_data += '<td><input type="number" min="1" style="width:50px;" value="'+items[i].qty+'" onchange="updateQty('+items[i].ic_id+',this.value)";></td>';
+        table_data += '<td>'+items[i].icprice+'</td>';
+        var total = eval(items[i].qty) * eval(items[i].icprice);
+        subTotal += total;
+        table_data += '<td>'+total+'</td>';
+        table_data += "</tr>"
+      }
+      table_data += '</table>';
+      table_data += '<h3><p align="right">Amount Payable : '+subTotal+'</p></h3>';
+      table_data += '<br><div class="pull-right"><button class="btn btn-default">Countinue to add items </button><button class="btn btn-primary">Checkout</button></div>';
+      console.log(items);
+      $("#carts").html(table_data);
+    }
+  }
+  function updateQty(id,val){
+    var id = id
+    var val = val;
+    var cart = $.cookie("cart");
+    cart = jQuery.parseJSON(cart);
+    var items = cart.items;
+    for(var i=0;i<items.length;i++){
+      if(id==items[i].ic_id){
+        items[i].qty = val;
+        break;
+      }
+    }
+    cart.items = items;
+    $.cookie("cart",JSON.stringify(cart),{path:"/"});
+    orderSummary();
+  }

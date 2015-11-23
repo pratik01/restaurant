@@ -30,6 +30,9 @@ class RestaurantsController < ApplicationController
     else
       redirect_to :controller => "restaurants",:action => "list"
     end
+    respond_to do |format|
+      format.html {render :layout => "customer"}
+    end
   end
 
   def new
