@@ -4,24 +4,24 @@
     .col-md-3{:style=>"padding-left:0px;"}
       .panel.panel-default
         .panel-heading
-          Cuisine
+          %b Cuisine
         .panel-body{:style=>"max-height:250px;overflow:auto;"}
-          .row{:style=>"padding-left:8px;"}
+          .row{:style=>"padding-left:15px;"}
             - @cuisine_type.each do |c|
-              %p
+              .checkbox
                 %label
-                  %input{:type => "checkbox",:value=>"#{c.name}"}
-                    \&nbsp;#{c.name}
+                  %input{:type => "checkbox",:name=>"cuisine_name[]",:value=>"#{c.name}"}
+                    #{c.name}
       .panel.panel-primary
         .panel-heading
           Area
         .panel-body{:style=>"max-height:250px;overflow:auto;"}
-          .row{:style=>"padding-left:8px;"}
+          .row{:style=>"padding-left:15px;"}
             - @areas.each do |a|
-              %p
+              .checkbox
                 %label
-                  %input{:type => "checkbox",:value=>"#{a.address1}"}
-                    \&nbsp;#{a.address1}
+                  %input{:type => "checkbox",:name=>"area_name[]",:value=>"#{a.address1}"}
+                    #{a.address1}
 
     .col-md-9
       .col-md-12.col-sm-12
@@ -51,32 +51,36 @@
           - @restaurants.each do |r|
             .col-md-4
               .panel.panel-primary
-                .panel-body
-                  .col-md-12{:style=>"padding:0px;"}
-                    %img.img-responsive{:src => "#{r.logo.to_s}",:style=>"margin-bottom:0px;height:130px;width:100%;",:class=>"thumbnail"}
-                  .col-md-12
-                    %h2{:style=>"margin-top:10px;"}
-                      %a{:href => "/restaurants/restaurant_profile?id=#{r.id}"}
-                        = r.name
-                    %p
-                      .address
-                        %i.glyphicon.glyphicon-map-marker
-                        = r.address1
-                        ,
-                        = r.city
-                        %i.glyphicon.glyphicon-phone
-                        = r.contact1
-                    %p
-                      %i.glyphicon.glyphicon-time
-                      = r.delay_time
-                      Minutes
-                    %p
-                      %button{:type=>"button"}
+                .panel-body{:style=>"padding-top:0px;"}
+                  .row{:style=>'min-height:300px;'}
+                    .col-md-12{:style=>"padding:10px;"}
+                      %img.img-responsive{:src => "#{r.logo.to_s}",:style=>"margin-bottom:0px;height:130px;width:100%;",:class=>"thumbnail"}
+                    .col-md-12
+                      %h3{:style=>"margin-top:10px;"}
+                        %a{:href => "/restaurants/restaurant_profile?id=#{r.id}"}
+                          = r.name
+                      %p
+                        .address
+                          %p
+                            %i.glyphicon.glyphicon-map-marker
+                            = r.address1
+                            ,
+                            = r.city
+                          %p
+                            %i.glyphicon.glyphicon-phone
+                            = r.contact1
+                      %p
+                        %i.glyphicon.glyphicon-time
+                        = r.delay_time
+                        Minutes
+                  .row
+                    .col-md-3.col-sm-3.col-xs-3{:style=>"padding-right:5px;"}
+                      %button.btn.btn-default{:type=>"button"}
                         %i.glyphicon.glyphicon-thumbs-up
-                      %button{:type=>"button"}
+                    .col-md-3.col-sm-3.col-xs-3{:style=>"padding-left:0px;"}
+                      %button.btn.btn-default{:type=>"button"}
                         %i.glyphicon.glyphicon-heart
-                      Your Rating
-                  .col-md-2
-                    %button{:type=>"button", :class=>"btn btn-default btn-xs"}
-                      Write Review
+                    .col-md-6.col-sm-6.col-xs-6{:style=>"padding-left:0px;padding-right:30px;"}
+                      %button{:type=>"button", :class=>"btn btn-default btn-md"}
+                        Write Review
     .col-md-2{:style=>"padding-right:0px;"}
