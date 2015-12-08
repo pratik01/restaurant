@@ -6,48 +6,86 @@
       %p
         After request for booking table the restaurant owner has confirmed your table and send you confirmation details vai email & sms.
     %form
+      %input{:type=>"hidden",:id=>"restaurant_id",:value=>"#{@restaurant.id}"}
+      = hidden_field_tag :authenticity_token, form_authenticity_token
       .col-md-4
-        .form-group
-          %label
-            First Name
-          %input.form-control{:type=>"text"}
+        = render :partial => "components/simple_text_box_with_label" ,:locals => {:txtLabel=>"First Name",:c=>"form-control",:id=>"firstName"}
       .col-md-4
-        .form-group
-          %label
-            Last Name
-          %input.form-control{:type=>"text"}
+        = render :partial => "components/simple_text_box_with_label" ,:locals => {:txtLabel=>"Last Name",:c=>"form-control",:id=>"lastName"}
       .col-md-4
-        .form-group
-          %label
-            Contact 1
-          %input.form-control{:type=>"text"}
+        = render :partial => "components/simple_text_box_with_label" ,:locals => {:txtLabel=>"Contact 1",:c=>"form-control",:id=>"contact1"}
       .col-md-4
-        .form-group
-          %label
-            Contact 2
-          %input.form-control{:type=>"text"}
+        = render :partial => "components/simple_text_box_with_label" ,:locals => {:txtLabel=>"Contact 2",:c=>"form-control",:id=>"contact2"}
       .col-md-4
-        .form-group
-          %label
-            Email
-          %input.form-control{:type=>"text"}
+        = render :partial => "components/simple_text_box_with_label" ,:locals => {:txtLabel=>"email",:c=>"form-control",:id=>"email"}
       .col-md-4
-        .form-group
-          %label
-            Total Guest
-          %input.form-control{:type=>"text"}
+        = render :partial => "components/simple_text_box_with_label" ,:locals => {:txtLabel=>"Total Guest",:c=>"form-control",:id=>"totalGuest"}
       .col-md-4
         .form-group
           %label
             Date
-          %input.form-control{:type=>"date"}
+          #datetimepicker1.input-group.date
+            %input.form-control#booking_date{:type => "text"}/
+            %span.input-group-addon
+              %span.glyphicon.glyphicon-calendar
       .col-md-4
         .form-group
           %label
             Time
-          %input.form-control{:type=>"time"}
+          .input-group.bootstrap-timepicker
+            %input.form-control#booking_time{:type => "text"}
+              %span.input-group-addon
+                %i.glyphicon.glyphicon-time
       .col-md-12
         .form-group
           %label
             Message
           %textarea.form-control
+      .col-md-12
+        %button.btn.btn-primary{:id=>"bookTable",:type=>"button"} Book Table
+:javascript
+  $(document).ready(function(){
+    $('#datetimepicker1').datetimepicker({
+      format: 'YYYY-MM-DD'
+    });
+    $('#booking_time').timepicker();
+
+    $("#bookTable").click(function(){
+        var bookTable = {
+          firstName:$("#firstName").val(),
+          lastName:$("#lastName").val(),
+          email:$("#email").val(),
+          contact1:$("#contact1").val(),
+          contact2:$("#contact2").val(),
+          booking_date:$("#booking_date").val(),
+          booking_time:$("#booking_time").val(),
+          no_of_guest:$("#totalGuest").val(),
+          restaurant_id:$("#restaurant_id").val()
+        }
+        var restaurant_name = '#{@restaurant.name}'
+        var cart = $.cookie("cart");
+        cart = jQuery.parseJSON(cart);
+        if(cart!="" && cart!=undefined){
+          if(restaurant_name==cart.restaurant_name){
+            cart.user = bookTable;
+            $.cookie("cart",JSON.stringify(cart),{path:"/"});
+          }else{
+            cart = {
+              user:bookTable,
+              restaurant_name:restaurant_name,
+              items:"",
+            };
+            $.cookie("cart",JSON.stringify(cart),{path:"/"});
+          }
+        }else{
+          cart = {
+            user:bookTable,
+            restaurant_name:restaurant_name,
+            items:"",
+          };
+          $.cookie("cart",JSON.stringify(cart),{path:"/"});
+        }
+        alert("Booking request save successfully.");
+        orderSummary();
+    });
+  });

@@ -21,9 +21,18 @@ class BookTablesController < ApplicationController
   end
 
   def create
-    @book_table = BookTable.new(book_table_params)
-    @book_table.save
-    respond_with(@book_table)
+    @data = false
+    if !current_user.blank?
+      @user = current_user
+      @book_table = BookTable.new(book_table_params)
+      @book_table.user_id = @user.id
+      @book_table.save
+      @data = false
+    end
+    respond_to do |format|
+      format.html
+      format.json {render :json => {:status => @data}}
+    end
   end
 
   def update
@@ -42,6 +51,6 @@ class BookTablesController < ApplicationController
     end
 
     def book_table_params
-      params.require(:book_table).permit(:firstName, :lastName, :contact1, :contact2, :email, :booking_date, :booking_time, :no_of_guest, :message)
+      params.require(:book_table).permit!
     end
 end

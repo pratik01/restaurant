@@ -13,5 +13,7 @@
  *= require font-awesome-min
  *= require theme
  *= require dataTables/jquery.dataTables
+ *= require bootstrap-datetimepicker
+ *= require bootstrap-timepicker
  *= require_tree .
  */

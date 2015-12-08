@@ -1,0 +1,32 @@
+.slider.js_multislides.multislides
+  .frame.js_frame
+    %ul.slides.js_slides
+      %li.js_slide 1
+      %li.js_slide 2
+      %li.js_slide 3
+      %li.js_slide 4
+      %li.js_slide 5
+      %li.js_slide 6
+      %li.js_slide 7
+      %li.js_slide 8
+      %li.js_slide 9
+      %li.js_slide 10
+      %li.js_slide 11
+      %li.js_slide 12
+  %span.js_prev.prev
+    %svg{:height => "50", :viewBox => "0 0 501.5 501.5", :width => "50", :xmlns => "http://www.w3.org/2000/svg"}
+      %g
+        %path{:d => "M302.67 90.877l55.77 55.508L254.575 250.75 358.44 355.116l-55.77 55.506L143.56 250.75z", :fill => "#2E435A"}/
+  %span.js_next.next
+    %svg{:height => "50", :viewBox => "0 0 501.5 501.5", :width => "50", :xmlns => "http://www.w3.org/2000/svg"}
+      %g
+        %path{:d => "M199.33 410.622l-55.77-55.508L247.425 250.75 143.56 146.384l55.77-55.507L358.44 250.75z", :fill => "#2E435A"}/
+:javascript
+  document.addEventListener('DOMContentLoaded', function () {
+        var multiSlides = document.querySelector('.js_multislides');
+
+        lory(multiSlides, {
+            infinite: 4,
+            slidesToScroll: 4
+        });
+    });

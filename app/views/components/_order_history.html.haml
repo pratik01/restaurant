@@ -11,17 +11,26 @@
     var cart = $.cookie("cart");
     if(cart!="" && cart!=undefined){
       cart = jQuery.parseJSON(cart);
-      var data = "<h4>Restaurant Name : "+cart.restaurant_name+"</h4>";
+      var user = cart.user
+      var user_data = ''
+      if(user!="" && user!=undefined){
+        user_data += 'Booking Information<br><br>Name : '+user.firstName+" "+user.lastName;
+        user_data += '<br>Contact : '+user.contact1+','+user.contact2;
+        user_data += '<br>Email : '+user.email;
+        user_data += '<br>No of guest : '+user.no_of_guest;
+      }
+      var data = user_data
+      data += "<h4 class='text-primary'>"+cart.restaurant_name+"</h4>";
       var items = cart.items;
-      data += '<table class="table"><thead><th>Items</th><th>Price</th></thead><tbody>';
+      data += '<table class="table"><thead><th>Items</th><th>Price</th><th></th></thead><tbody>';
       var subTotal = 0;
       for(var i=0;i<items.length;i++){
         data += "<tr>";
         data += '<td>';
         if(items[i].cuisineName!=""){
-          data += "<p>"+items[i].cuisineName+"</p>";
+          data += "<p class='text-info' style='color:#9F6164;font-size:12px;font-weight:bold;'>"+items[i].cuisineName+"</p>";
         }else if(items[i].itemName!=""){
-          data += "<p>"+items[i].itemName+"</p>";
+          data += "<p class='text-info' style='color:#9F6164;font-size:12px;font-weight:bold;'>"+items[i].itemName+"</p>";
         }
         data += '<p style="font-size:10px;">Qty : <b>'+items[i].qty+'</b> &nbsp;Price : <b>'+items[i].icprice+'</b><br>';
         if(items[i].food_diet=="is_veg"){
@@ -36,14 +45,26 @@
         data += 'Food Test : <b>'+items[i].food_test+'</b></p>';
         data += "</td>";
         var price = eval(items[i].icprice) * eval(items[i].qty);
-        data += "<td><p>"+price+"</p></td>";
+        data += "<td><p style='font-size:12px;'>"+price+"</p></td>";
+        data += "<td><b><a href='javascript:void(0);' onclick='removeRItem("+i+")' class='text-info'>X</a></b></td>";
         data += "</tr>";
         subTotal = subTotal + eval(price);
       }
       data += '<tr>';
+
       data += '<td><b>Total</b></td>';
       data += '<td><b>'+subTotal+'</b></td>';
+      data += '<td></td>';
       data += '</tr>';
       $("#orderSummary").html(data);
     }
+  }
+  function removeRItem(itemIndex){
+    var cart = $.cookie("cart");
+    cart = jQuery.parseJSON(cart);
+    var items = cart.items;
+    items.splice(itemIndex,1);
+    cart.items = items;
+    $.cookie("cart",JSON.stringify(cart),{path:"/"});
+    orderSummary();
   }

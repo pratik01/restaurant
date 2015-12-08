@@ -5,7 +5,20 @@
       %li.active{:role => "presentation"}
         %a{"aria-controls" => "food_menu", "data-toggle" => "tab", :href => "#carts", :role => "tab"} Pre order carts
   .tab-content{:style=>"background:white;"}
-    #carts.tab-pane.active{:role => "tabpanel"}
+    .row
+      .col-md-3
+        .panel.panel-default
+          .panel-heading
+            %b Customer Information for booking table
+          .panel-body
+            #customer_details
+            #add_new_details_btn
+              %button.btn-default.btn-xs{:type=>"button"} Select from list
+              %button.btn-default.btn-xs{:type=>"button"} Add New
+              %button.btn-default.btn-xs{:type=>"button","data-toggle"=>"modal" ,"data-target"=>"#myModal"} Edit
+      .col-md-9
+        #carts.tab-pane.active{:role => "tabpanel"}
+= render :partial => "components/user_edit_modal"
 :javascript
   $(document).ready(function(){
     orderSummary();
@@ -15,7 +28,17 @@
     console.log(cart);
     if(cart!="" && cart!=undefined){
       cart = jQuery.parseJSON(cart);
-      var table_data = '<h3><b>Restaurant : '+cart.restaurant_name+'</b></h3><br>';
+      var user = cart.user;
+      var user_data = 'Name : '+user.firstName+' '+user.lastName;
+      user_data += '<br>Contact No :'+user.contact1+" "+user.contact2;
+      user_data += '<br>Email : '+user.email+'<br><br>';
+
+
+      $("#customer_details").html(user_data);
+      var table_data = '<h3 style="margin-top:0px;"><b>Restaurant : '+cart.restaurant_name+'</b></h3>';
+      table_data += 'Booking Date : <b>'+user.booking_date+'</b><br>Booking Time : <b>'+user.booking_time+'</b><br>';
+      table_data += 'No of Guest : <b>'+user.no_of_guest+'</b>';
+      table_data += '<br><br><b>Pre Order Items List</b>';
       table_data += '<table class="table">';
       var items = cart.items;
       var subTotal = 0;
@@ -23,7 +46,8 @@
       table_data += '<th>ITEM</th>';
       table_data += '<th>QTY</th>';
       table_data += '<th>PRICE</th>';
-      table_data += "<th>SUB TOTAL<?th>";
+      table_data += "<th>SUB TOTAL<th>";
+      table_data += "<th><th>";
       table_data += "</thead>"
       for(var i=0;i<items.length;i++){
         table_data += '<tr>';
@@ -50,11 +74,13 @@
         var total = eval(items[i].qty) * eval(items[i].icprice);
         subTotal += total;
         table_data += '<td>'+total+'</td>';
+        table_data += '<td><b><a href="javascript:void(0);" onclick="removeRItem('+i+');" class="text-info">X</a></b></td>';
         table_data += "</tr>"
       }
       table_data += '</table>';
       table_data += '<h3><p align="right">Amount Payable : '+subTotal+'</p></h3>';
-      table_data += '<br><div class="pull-right"><button class="btn btn-default">Countinue to add items </button><button class="btn btn-primary">Checkout</button></div>';
+      table_data += '<br><div class="pull-right"><button class="btn-default">Countinue to add items </button>';
+      table_data += '&nbsp;&nbsp;<button class="btn-primary">Checkout</button></div>';
       console.log(items);
       $("#carts").html(table_data);
     }
@@ -71,6 +97,15 @@
         break;
       }
     }
+    cart.items = items;
+    $.cookie("cart",JSON.stringify(cart),{path:"/"});
+    orderSummary();
+  }
+  function removeRItem(itemIndex){
+    var cart = $.cookie("cart");
+    cart = jQuery.parseJSON(cart);
+    var items = cart.items;
+    items.splice(itemIndex,1);
     cart.items = items;
     $.cookie("cart",JSON.stringify(cart),{path:"/"});
     orderSummary();

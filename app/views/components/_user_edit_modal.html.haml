@@ -1,0 +1,18 @@
+#myModal.modal.fade{:role => "dialog"}
+  .modal-dialog
+    / Modal content
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} &times;
+        %h4.modal-title Edit Customer information
+      .modal-body
+        %form
+          =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"First Name",:c=>"form-control",:id=>"firstName"}
+          =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Last Name",:c=>"form-control",:id=>"lastName"}
+          =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Contact 1",:c=>"form-control",:id=>"contact1"}
+          =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Contact 2",:c=>"form-control",:id=>"contact2"}
+          =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Email",:c=>"form-control",:id=>"email"}
+      .modal-footer
+        %button.btn-primary{"data-dismiss" => "modal", :type => "button",:id=>"update_cust_info"} Update
+        %button.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+:javascript

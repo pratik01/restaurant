@@ -15,9 +15,13 @@
 //= require turbolinks
 //= require jquery-cookie
 //= require country
+//= require moment
 //= require bootstrap-min
+//= require bootstrap-datetimepicker
+//= require bootstrap-timepicker
 //= require dataTables/jquery.dataTables
 //= require jqueryknob
+
 //= require_tree .
 $(function() {
     $(".knob").knob();

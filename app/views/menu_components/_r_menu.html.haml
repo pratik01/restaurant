@@ -1,9 +1,9 @@
-.col-md-2{:style=>"padding:0px;"}
+.col-md-3
   - @cusines_type.each do |ct|
     .list-group{:style=>"margin-bottom:0px;"}
       %a.list-group-item{:href=>"##{ct.name}",:style=>"font-weight:bold;"}
         =ct.name
-.col-md-10
+.col-md-9
   .col-md-12{:style=>"padding:0px !important;"}
     .pull-left
       %input{:type=>"text",:class=>"form-control input-sm",:placeholder=>"Search"}
@@ -78,9 +78,9 @@
       var data_for = $(this).attr("data-for");
       var url = "";
       if(data_for=="item"){
-        url = "/items/"+id;
+        url = "/owner/items/"+id;
       }else if(data_for=="cuisine"){
-        url = "/cuisines/"+id
+        url = "/owner/cuisines/"+id
       }
       if(id){
         $.ajax({
@@ -153,18 +153,22 @@
     }
     console.log(item);
     var cart = $.cookie("cart");
+    var user = '';
+    console.log(cart);
     if(cart!="" && cart!=undefined){
       cart = jQuery.parseJSON(cart);
+      user = cart.user;
       var rname = cart.restaurant_name;
       if(rname!=restaurant_name){
         $.removeCookie('cart');
         var items = [];
         items.push(item);
         cart = {
+          user:user,
           restaurant_name:restaurant_name,
           items:items
         }
-        $.cookie("cart",JSON.stringify(cart));
+        $.cookie("cart",JSON.stringify(cart),{path:"/"});
         var cart = $.cookie("cart");
         orderSummary();
       }else{
@@ -174,18 +178,31 @@
           items.push(item);
           console.log(items);
           cart = {
+            user:user,
             restaurant_name:restaurant_name,
             items:items
           }
           $.cookie("cart",JSON.stringify(cart),{path:"/"});
           var cart = $.cookie("cart");
           orderSummary();
+        }else{
+            var items = [];
+            items.push(item);
+            cart = {
+              user:user,
+              restaurant_name:restaurant_name,
+              items:items
+            }
+            $.cookie("cart",JSON.stringify(cart),{path:"/"});
+            var cart = $.cookie("cart");
+            orderSummary();
         }
       }
     }else{
       var items = [];
       items.push(item);
       cart = {
+        user:user,
         restaurant_name:restaurant_name,
         items:items
       }
