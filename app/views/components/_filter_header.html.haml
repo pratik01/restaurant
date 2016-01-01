@@ -1,0 +1,30 @@
+:css
+  .filter{
+    font-weight:bold;
+  }
+  .filter:hover{
+     color:red;
+     cursor:pointer;
+  }
+.row{:style=>"height:30px;background:white;padding:5px;"}
+  .text-center
+    - if !params.blank?
+      %b SHOWING #{@restaurants.length} IN
+      - if !params[:cuisine_name].blank?
+        - params[:cuisine_name].each do |cn|
+          %span.filter{"data-name"=>"#{cn}"} #{cn} X
+      - if !params[:area_name].blank?
+        - params[:area_name].each do |an|
+          %span.filter{"data-name"=>"#{an}"} #{an} X
+:javascript
+  $(".filter").click(function(){
+     var data_val = $(this).attr("data-name");
+     $(this).remove();
+     $(".cuisine_name").each(function(){
+        var val = $(this).val();
+        if(val==data_val){
+          $(this).prop('checked', false);
+        }
+     });
+     $("#cuisine_frm").submit();
+  });

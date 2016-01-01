@@ -1,5 +1,8 @@
 Myrestaurant::Application.routes.draw do
 
+  get "payment/index"
+  get "likers/index"
+  post "likers/save"
   scope "/owner" do
     resources :cuisine_types,:tables,:restaurant_features
     resources :amenitis,:items,:cuisines,:banquet_halls,:menus
@@ -19,14 +22,15 @@ Myrestaurant::Application.routes.draw do
   resources :customers
   devise_for :users
 
-  devise_scope :users do
-    authenticated :user do
-      root 'admin_dashboard#index', as: :authenticated_root
-    end
-    unauthenticated do
-      root 'home#index', as: :root
-    end
-  end
+  #devise_scope :users do
+  #  authenticated :user do
+  #    root 'admin_dashboard#index', as: :authenticated_root
+  #  end
+  #  unauthenticated do
+  #    root 'home#index', as: :root
+  #  end
+  #end
+  root 'home#index', as: :root
   TheRoleManagementPanel::Routes.mixin(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,5 +1,5 @@
 .col-md-3
-  - @cusines_type.each do |ct|
+  - @cuisine_types.each do |ct|
     .list-group{:style=>"margin-bottom:0px;"}
       %a.list-group-item{:href=>"##{ct.name}",:style=>"font-weight:bold;"}
         =ct.name
@@ -14,22 +14,23 @@
         Grid
   .h-10{:style=>"height:10px;clear:both;"}
   .col-md-12{:style=>"padding:0px !important;"}
-    - @cusines_type.each do |ct|
+    - @cuisine_types.each do |ct|
       .panel.panel-default{:id=>"#{ct.name}"}
         .panel-heading
           %b=ct.name
         .panel-body
           - if !@cuisines_sub_false.blank?
             %table.table.table-bordered.table-responsive{:style=>"margin-bottom:0px;"}
-              - @cuisines_sub_false.in_groups_of(2) do |group|
-                %tr
-                  - group.each do |c|
-                    - if (ct.name == c.cuisine_type.name) && (c.is_subcategory==false)
-                      %td{:width=>250}
-                        %a.addToCartModal{:href=>"javascript:void(0);","data-id"=>"#{c.id}","data-for"=>"cuisine"}
-                          =c.name
-                      %td
-                        =c.price
+              - if !@cuisine_sub_category.blank?
+                - @cuisines_sub_false.in_groups_of(2) do |group|
+                  %tr
+                    - group.each do |c|
+                      - if (ct.name == c.cuisine_type.name) && (c.is_subcategory==false)
+                        %td{:width=>250}
+                          %a.addToCartModal{:href=>"javascript:void(0);","data-id"=>"#{c.id}","data-for"=>"cuisine"}
+                            =c.name
+                        %td
+                          =c.price
           - if !@cuisines_sub_true.blank?
             - @cuisines_sub_true.each do |c|
               - if (ct.name == c.cuisine_type.name) && (c.is_subcategory==true)

@@ -8,12 +8,7 @@
 %body.theme-blue
   .container-fluid
     - if user_signed_in?
-      = render :partial =>  "components/header"
-      - @user = current_user
-      - if @user.role.name=="admin"
-        = render :partial => "components/admin_menu"
-      - elsif @user.role.name="owner"
-        = render :partial => "components/admin_menu"
+      = render :partial => "components/menu",:locals => {:user => current_user}
     - else
       = render :partial =>"components/header1"
       = render :partial => "components/menu"

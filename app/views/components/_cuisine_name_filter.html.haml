@@ -1,0 +1,21 @@
+.panel.panel-default
+  .panel-heading{:style=>"height:55px;"}
+    %h3.panel-title.pull-left Cuisine
+    %button.btn.btn-default.pull-right#cuisine_btn_go Go
+  .panel-body{:style=>"max-height:250px;overflow:auto;"}
+    %form#cuisine_frm{:method=>"GET",:action=>"/restaurants/list"}
+      .row{:style=>"padding-left:15px;"}
+        - @cuisine_type.each do |c|
+          - @checked = false
+          - if !params[:cuisine_name].blank?
+            - params[:cuisine_name].each do |cn|
+              - if cn == c.name
+                - @checked = true
+          .checkbox
+            %label
+              %input.cuisine_name{:type => "checkbox",:name=>"cuisine_name[]",:checked => @checked,:value=>"#{c.name}"}
+                #{c.name}
+:javascript
+  $("#cuisine_btn_go").click(function(){
+     $("#cuisine_frm").submit();
+  });

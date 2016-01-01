@@ -32,6 +32,9 @@
               - if @user.role.name=="admin"
                 %li
                   %a{:href=>"/owner/restaurants"} Manage Restaurant
+              - elsif @user.role.name=="owner"
+                %li
+                  %a{:href=>"/owner/restaurants"} Manage Restaurant
               %li
                 %a{:href=>"#"} My Order History
               %li.divider{:role => "separator",:style=>"margin:0px;"}

@@ -1,28 +1,27 @@
+:css
+  .panel-heading h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: normal;
+    width: 75%;
+    padding-top: 8px;
+  }
+  .like{
+    background:blue;
+  }
+  .dislike{
+    background:gray;
+  }
 .container
+  .h-20
+  - if !params[:cuisine_name].blank? || !params[:area_name].blank?
+    = render :partial => "components/filter_header"
   .h-20
   .row{:style=>"padding:0px;"}
     .col-md-3{:style=>"padding-left:0px;"}
-      .panel.panel-default
-        .panel-heading
-          %b Cuisine
-        .panel-body{:style=>"max-height:250px;overflow:auto;"}
-          .row{:style=>"padding-left:15px;"}
-            - @cuisine_type.each do |c|
-              .checkbox
-                %label
-                  %input{:type => "checkbox",:name=>"cuisine_name[]",:value=>"#{c.name}"}
-                    #{c.name}
-      .panel.panel-primary
-        .panel-heading
-          Area
-        .panel-body{:style=>"max-height:250px;overflow:auto;"}
-          .row{:style=>"padding-left:15px;"}
-            - @areas.each do |a|
-              .checkbox
-                %label
-                  %input{:type => "checkbox",:name=>"area_name[]",:value=>"#{a.address1}"}
-                    #{a.address1}
-
+      = render :partial => "components/cuisine_name_filter"
+      = render :partial => "components/area_name_filter"
     .col-md-9
       .col-md-12.col-sm-12
         .row.list-view-sorting.clearfix
@@ -74,13 +73,63 @@
                         = r.delay_time
                         Minutes
                   .row
-                    .col-md-3.col-sm-3.col-xs-3{:style=>"padding-right:5px;"}
-                      %button.btn.btn-default{:type=>"button"}
-                        %i.glyphicon.glyphicon-thumbs-up
-                    .col-md-3.col-sm-3.col-xs-3{:style=>"padding-left:0px;"}
-                      %button.btn.btn-default{:type=>"button"}
-                        %i.glyphicon.glyphicon-heart
-                    .col-md-6.col-sm-6.col-xs-6{:style=>"padding-left:0px;padding-right:30px;"}
-                      %button{:type=>"button", :class=>"btn btn-default btn-md"}
-                        Write Review
+                    - if user_signed_in?
+                      .col-md-3.col-sm-3.col-xs-3{:style=>"padding-right:5px;"}
+                        %button{:id=>"like_#{r.id}",:class=>"#{get_like_class(r.id)}",:type=>"button","data-id"=>"#{r.id}"}
+                          = count_likes(r.id)
+                          %i.glyphicon.glyphicon-thumbs-up
+                      .col-md-3.col-sm-3.col-xs-3{:style=>"padding-left:0px;"}
+                        %button.btn.btn-default.btn-xs{:type=>"button"}
+                          %i.glyphicon.glyphicon-heart
+                      .col-md-6.col-sm-6.col-xs-6{:style=>"padding-left:0px;padding-right:30px;"}
+                        %button{:type=>"button", :class=>"btn btn-default btn-xs"}
+                          Write Review
+                    - else
+                      .col-md-3.col-sm-3.col-xs-3{:style=>"padding-right:5px;"}
+                        %button{:id=>"like_#{r.id}",:class=>"btn btn-default btn-xs",:type=>"button","data-id"=>"#{r.id}"}
+                          = count_likes(r.id)
+                          %i.glyphicon.glyphicon-thumbs-up
+                      .col-md-3.col-sm-3.col-xs-3{:style=>"padding-left:0px;"}
+                        %button.btn.btn-default.btn-xs{:type=>"button"}
+                          %i.glyphicon.glyphicon-heart
+                      .col-md-6.col-sm-6.col-xs-6{:style=>"padding-left:0px;padding-right:30px;"}
+                        %button{:type=>"button", :class=>"btn-xs btn btn-default"}
+                          Write Review
     .col-md-2{:style=>"padding-right:0px;"}
+:javascript
+  $(".btn-like").click(function(){
+    var restaurant_id = $(this).attr("data-id");
+    var id = $(this).attr("id");
+    var isLike = false;
+    if ($(this).hasClass("btn-default")){
+       isLike = true;
+    }
+    var like = {
+      isLike:isLike,
+      restaurant_id:restaurant_id
+    }
+    var data = {like:like};
+
+    $.ajax({
+      url : "/likers/save",
+      type : "POST",
+      contentType : "application/json",
+      dataType : "json",
+      data : JSON.stringify(data) ,
+      success : function(response) {
+          var btn_data = response.count+"<i class='glyphicon glyphicon-thumbs-up'></i>";
+          $("#"+id).html(btn_data);
+          if(isLike==true){
+            $("#"+id).removeClass("btn-default");
+            $("#"+id).addClass("btn-info");
+          }else{
+            $("#"+id).removeClass("btn-info");
+            $("#"+id).addClass("btn-default");
+          }
+      },
+      error:function(data){
+
+      }
+    });
+
+  });

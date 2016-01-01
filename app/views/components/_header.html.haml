@@ -13,19 +13,15 @@
       %li.dropdown.hidden-xs
         %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
           %span.glyphicon.glyphicon-user.padding-right-small{:style => "position:relative;top: 3px;"}
-          Jack Smith
+          = user.first_name
           %i.fa.fa-caret-down
         %ul.dropdown-menu
           %li
             %a{:href => "./"} My Account
-          %li.divider
-          %li.dropdown-header Admin Panel
-          %li
-            %a{:href => "./"} Users
-          %li
-            %a{:href => "./"} Security
-          %li
-            %a{:href => "./", :tabindex => "-1"} Payments
-          %li.divider
+          - if user.role.name == "owner"
+            %li.divider
+              %li
+                %a{:href=>"/owner/restaurants"} Owner Panel
+            %li.divider
           %li
             %a{:href => "/users/sign_out","data-method"=>"delete", :tabindex => "-1"} Logout

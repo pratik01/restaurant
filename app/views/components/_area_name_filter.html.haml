@@ -1,0 +1,21 @@
+.panel.panel-primary
+  .panel-heading{:style=>"height:55px;"}
+    %h3.panel-title.pull-left Area
+    %button.btn.btn-default.pull-right#area_btn_go Go
+  .panel-body{:style=>"max-height:250px;overflow:auto;"}
+    %form#area_name_frm{:method=>"GET",:action=>"/restaurants/list"}
+      .row{:style=>"padding-left:15px;"}
+        - @areas.each do |a|
+          - @checked = false
+          - if !params[:area_name].blank?
+            - params[:area_name].each do |an|
+              - if an == a.address1
+                - @checked = true
+          .checkbox
+            %label
+              %input.area_name{:type => "checkbox",:name=>"area_name[]",:checked => @checked,:value=>"#{a.address1}"}
+                #{a.address1}
+:javascript
+  $("#area_btn_go").click(function(){
+     $("#area_name_frm").submit();
+  });
