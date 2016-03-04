@@ -1,0 +1,30 @@
+.content
+  .header
+    %h1.page-title Staff
+    %ul.breadcrumb
+      %li.active Staff
+  .main-content
+    .btn-toolbar.list-toolbar
+      %a{:href=>new_user_path,:class=>"btn btn-primary"}
+        %i.glyphicon.glyphicon-plus
+        New Item
+      %button.btn.btn-default{:type=>"button"} Import
+      %button.btn.btn-default{:type=>"button"} Export
+    %table.table
+      %tr
+        %th
+          NAME
+        %th
+          EMAIL
+        %th
+      - @users.each do |user|
+        %tr
+          %td
+            = user.first_name
+          %td
+            = user.email
+          %td
+            = link_to 'Show', user
+            = link_to 'Edit', edit_user_path(user)
+            = link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+

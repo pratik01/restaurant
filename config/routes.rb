@@ -1,10 +1,12 @@
 Myrestaurant::Application.routes.draw do
 
+  resources :contacts
+  resources :uploads
   get "payment/index"
   get "likers/index"
   post "likers/save"
   scope "/owner" do
-    resources :cuisine_types,:tables,:restaurant_features
+    resources :cuisine_types,:tables,:restaurant_features,:users
     resources :amenitis,:items,:cuisines,:banquet_halls,:menus
     resources :restaurants do
       collection do
@@ -13,15 +15,29 @@ Myrestaurant::Application.routes.draw do
       end
       resources :reviews,:tables
     end
+    resources :customers do
+      collection do
+        get 'profile'
+      end
+    end
+
   end
+
+
+  resources :restaurants, param: :name
   resources :items
   resources :book_tables
   get "restaurants/list"
   get "restaurants/restaurant_profile"
   resources :carts
-  resources :customers
-  devise_for :users
+  resources :customers do
+    collection do
+      get 'profile'
+    end
+  end
+  devise_for :users, :controllers => {registrations: 'registrations',omniauth_callbacks: "omniauth_callbacks"}
 
+  #get 'auth/:provider/callback', to: 'omniauth_callbacks#create'
   #devise_scope :users do
   #  authenticated :user do
   #    root 'admin_dashboard#index', as: :authenticated_root
@@ -30,8 +46,10 @@ Myrestaurant::Application.routes.draw do
   #    root 'home#index', as: :root
   #  end
   #end
+
   root 'home#index', as: :root
   TheRoleManagementPanel::Routes.mixin(self)
+  resources :customer_dashboard
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,5 +1,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+require 'omniauth-google-oauth2'
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -23,6 +24,24 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
+  #config.omniauth :google_oauth2, "880379815226-d9bb1cvp8c30pfn6gjf0p9cv65usfujm.apps.googleusercontent.com", "UH99qm0W6I1_sKd5xQKuoZYw", {client_options: {ssl: {ca_file: Rails.root.join("cacert.pem").to_s}}}
+  CALLBACK_URL ='http://localhost:3000/users/auth/google_oauth2/callback'
+  config.omniauth :google_oauth2,
+        "880379815226-d9bb1cvp8c30pfn6gjf0p9cv65usfujm.apps.googleusercontent.com",
+        "UH99qm0W6I1_sKd5xQKuoZYw",
+
+        {   :skip_jwt => true,
+            :client_options => {:ssl => {:ca_file => Rails.root.join("cacert.pem").to_s}},
+            :provider_ignores_state => true,
+            :prompt => "select_account",
+            :redirect_uri => CALLBACK_URL,
+            setup: (lambda do |env|
+              request = Rack::Request.new(env)
+              env['omniauth.strategy'].options['token_params'] = {:redirect_uri => CALLBACK_URL}
+            end)
+        }
+
+  config.omniauth :facebook, '1131002626924334', '1037de2e8316baf10eed0c2177717e92', {:client_options => {:ssl => {:ca_file => Rails.root.join("cacert.pem").to_s}}}
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for

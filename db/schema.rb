@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209061122) do
+ActiveRecord::Schema.define(version: 20160120114932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20151209061122) do
     t.datetime "updated_at"
     t.string   "restaurant_features"
     t.string   "name"
+  end
+
+  create_table "assign_staffs", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "banquet_halls", force: true do |t|
@@ -49,6 +56,23 @@ ActiveRecord::Schema.define(version: 20151209061122) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "restaurant_id"
+  end
+
+  create_table "contacts", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "contact1"
+    t.string   "contact2"
+    t.string   "email"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "country"
+    t.string   "state"
+    t.string   "city"
+    t.string   "zip_code"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "cuisine_types", force: true do |t|
@@ -169,6 +193,15 @@ ActiveRecord::Schema.define(version: 20151209061122) do
     t.integer  "min_capacity"
   end
 
+  create_table "uploads", force: true do |t|
+    t.string   "file_name"
+    t.string   "file_type"
+    t.string   "file_size"
+    t.string   "s3_key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -193,6 +226,8 @@ ActiveRecord::Schema.define(version: 20151209061122) do
     t.integer  "role_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

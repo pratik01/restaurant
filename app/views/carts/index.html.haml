@@ -14,8 +14,8 @@
             #customer_details
             #add_new_details_btn
               %button.btn-default.btn-xs{:type=>"button"} Select from list
-              %button.btn-default.btn-xs{:type=>"button"} Add New
-              %button.btn-default.btn-xs{:type=>"button","data-toggle"=>"modal" ,"data-target"=>"#myModal"} Edit
+              %button.btn-default.btn-xs{:type=>"button",:id=>"add_new_cust_info"} Add New
+              %button.btn-default.btn-xs{:type=>"button",:id=>"edit_cust_info"} Edit
       .col-md-9
         #carts.tab-pane.active{:role => "tabpanel"}
 = render :partial => "components/user_edit_modal"
@@ -23,6 +23,10 @@
   $(document).ready(function(){
     orderSummary();
   });
+  $("#edit_cust_info").click(function(){
+    $("#title_cust_info").html("Edit customer information");
+    $("#myModal").modal("show");
+  })
   function orderSummary(){
     var cart = $.cookie("cart");
     console.log(cart);
@@ -32,8 +36,11 @@
       var user_data = 'Name : '+user.firstName+' '+user.lastName;
       user_data += '<br>Contact No :'+user.contact1+" "+user.contact2;
       user_data += '<br>Email : '+user.email+'<br><br>';
-
-
+      $("#firstName").val(user.firstName);
+      $("#lastName").val(user.lastName);
+      $("#contact1").val(user.contact1);
+      $("#contact2").val(user.contact2);
+      $("#email").val(user.email);
       $("#customer_details").html(user_data);
       var table_data = '<h3 style="margin-top:0px;"><b>Restaurant : '+cart.restaurant_name+'</b></h3>';
       table_data += 'Booking Date : <b>'+user.booking_date+'</b><br>Booking Time : <b>'+user.booking_time+'</b><br>';
@@ -80,10 +87,13 @@
       table_data += '</table>';
       table_data += '<h3><p align="right">Amount Payable : '+subTotal+'</p></h3>';
       table_data += '<br><div class="pull-right"><button class="btn-default">Countinue to add items </button>';
-      table_data += '&nbsp;&nbsp;<button class="btn-primary" onclick="">Checkout</button></div>';
+      table_data += '&nbsp;&nbsp;<button class="btn-primary" onclick="doPayment();">Checkout</button></div>';
       console.log(items);
       $("#carts").html(table_data);
     }
+  }
+  function doPayment(){
+    window.location.href = "/payment/index";
   }
   function updateQty(id,val){
     var id = id
@@ -110,3 +120,8 @@
     $.cookie("cart",JSON.stringify(cart),{path:"/"});
     orderSummary();
   }
+  $("#add_new_cust_info").click(function(){
+     $('#cust_info_frm')[0].reset();
+     $("#title_cust_info").html("Add customer information");
+     $("#myModal").modal("show");
+  });

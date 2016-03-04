@@ -39,6 +39,19 @@ gem 'mini_magick'
 gem 'the_role'
 gem 'jquery-ui-rails'
 gem 'jquery-datatables-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'activemerchant'
+gem 'payuindia', :git => 'git://github.com/payu-india/payuindia.git'
+
+gem 'aws-s3', :require => 'aws/s3'
+group :development, :test do
+  gem 'spring-commands-rspec'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

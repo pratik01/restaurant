@@ -36,6 +36,10 @@ class CustomersController < ApplicationController
     respond_with(@customer)
   end
 
+  def profile
+    @user = current_user
+  end
+
   private
     def set_customer
       @customer = Customer.find(params[:id])

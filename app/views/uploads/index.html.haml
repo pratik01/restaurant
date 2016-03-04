@@ -1,0 +1,19 @@
+%form#file_upload(action="https://myrestaurant.s3.amazonaws.com" method="post" enctype="multipart/form-data")
+  -# order is important!
+  -# also, the things that are not filled in right now *will* be filled in soon.  See below.
+  %input{:type => :hidden, :name => :key,:value=>"test/test.jpg"}
+  %input{:type => :hidden, :name => "AWSAccessKeyId", :value => "AKIAIM2SKKJJIVUTIPAA"}
+  %input{:type => :hidden, :name => :acl,  :value => "public-read"}
+  %input{:type => :hidden, :name => :success_action_status, :value => "201"}
+  %input{:type => :hidden, :name => :policy,:value=>"#{s3_upload_policy}"}
+  %input{:type => :hidden, :name => :signature,:value=>"#{s3_upload_signature}"}
+
+  .fileupload-content
+    .fileupload-progress
+  .file-upload
+    %label.fileinput-button
+      %span Upload Document
+      %input{:type => :file, :name => :file}
+      %input{:type=>"submit"}
+
+:javascript

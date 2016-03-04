@@ -1,10 +1,13 @@
+
 class RestaurantsController < ApplicationController
+
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   include CuisineTypesHelper
   respond_to :html
   before_action :login_required, only: [ :new ]
   before_action :role_required, only: [ :new ]
   def index
+
     @restaurants = Restaurant.where("user_id=?",current_user.id)
     respond_with(@restaurants)
   end
@@ -62,6 +65,7 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+
     @restaurant.user_id = current_user.id
     @restaurant.save
     respond_with(@restaurant)

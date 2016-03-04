@@ -54,13 +54,13 @@
     %li
       %ul.accounts-menu.nav.nav-list.collapse
         %li
-          %a{:href => "sign-in.html"}
+          %a{:href => "/owner/users/#{current_user.id}"}
             %span.fa.fa-caret-right
-            Sign In
+            My Profile
         %li
-          %a{:href => "sign-up.html"}
+          %a{:href => "/owner/users/"}
             %span.fa.fa-caret-right
-            Sign Up
+            Staff Member
         %li
           %a{:href => "reset-password.html"}
             %span.fa.fa-caret-right

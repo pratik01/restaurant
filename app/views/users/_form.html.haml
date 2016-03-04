@@ -1,0 +1,44 @@
+= form_for @user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+  %fieldset
+    %legend Personal Information
+    .col-md-6
+      = render :partial => "components/text_field",:locals => {:f=>f,:txtLabel=>"First Name",:n=>"first_name",:c=>"required"}
+      = render :partial => "components/text_field",:locals => {:f=>f,:txtLabel=>"Contact 1",:n=>"contact1",:c=>"required"}
+    .col-md-6
+      = render :partial => "components/text_field",:locals => {:f=>f,:txtLabel=>"Last Name",:n=>"last_name",:c=>"required"}
+      = render :partial => "components/text_field",:locals => {:f=>f,:txtLabel=>"Contact 2",:n=>"contact2",:c=>"required"}
+  %fieldset
+    %legend Login Detail
+    .col-md-12
+      = render :partial => "components/text_field",:locals => {:f=>f,:txtLabel=>"Email",:n=>"email",:c=>"required"}
+  %fieldset
+    %legend Address Information
+    .col-md-6
+      .form-group
+        %label Address 1
+        %input{:type=>"text",:class=>"form-control"}
+      .form-group
+        %label Country
+        %input{:type=>"text",:class=>"form-control"}
+      .form-group
+        %label City
+        %input{:type=>"text",:class=>"form-control"}
+    .col-md-6
+      .form-group
+        %label Address 1
+        %input{:type=>"text",:class=>"form-control"}
+      .form-group
+        %label State
+        %input{:type=>"text",:class=>"form-control"}
+      .form-group
+        %label Zip Code
+        %input{:type=>"text",:class=>"form-control"}
+  .actions
+    = f.submit 'Save',:class=>"btn btn-primary"
+    %button.btn.btn-default{:type=>"button"} Cancel

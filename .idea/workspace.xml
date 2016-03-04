@@ -2,40 +2,54 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c391df70-728a-4f9a-aed2-b6eb6385a409" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/components/_area_name_filter.html.haml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/components/_cuisine_name_filter.html.haml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/components/_filter_header.html.haml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/layouts/owner.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/components/_header.html.haml" afterPath="$PROJECT_DIR$/app/views/components/_header.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/components/_menu.html.haml" afterPath="$PROJECT_DIR$/app/views/components/_menu.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/menu_components/_r_menu.html.haml" afterPath="$PROJECT_DIR$/app/views/menu_components/_r_menu.html.haml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myrestaurant-90378a6f0961.p12" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/uploads/_uploader.html.haml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cacert.pem" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/customer_dashboard/index.html.haml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/uploads/index.html.haml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/tasks/my_namespace.rake" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/pluploadmin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/customers/profile.html.haml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/uploads_controller.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/helpers/uploads_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Production__myrestaurant.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Production__myrestaurant.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/components/_admin_menu.html.haml" afterPath="$PROJECT_DIR$/app/views/components/_admin_menu.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/restaurants/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/restaurants/_form.html.haml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/components/_social_media_login.html.haml" afterPath="$PROJECT_DIR$/app/views/components/_social_media_login.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/components/_user_edit_modal.html.haml" afterPath="$PROJECT_DIR$/app/views/components/_user_edit_modal.html.haml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/cuisine_types_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/cuisine_types_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/customers_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/customers_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/devise.rb" afterPath="$PROJECT_DIR$/config/initializers/devise.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/carts/index.html.haml" afterPath="$PROJECT_DIR$/app/views/carts/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/restaurants/index.html.haml" afterPath="$PROJECT_DIR$/app/views/restaurants/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/restaurants/list.html.haml" afterPath="$PROJECT_DIR$/app/views/restaurants/list.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/restaurant.rb" afterPath="$PROJECT_DIR$/app/models/restaurant.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/payment/index.html.haml" afterPath="$PROJECT_DIR$/app/views/payment/index.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/myrestaurant.iml" afterPath="$PROJECT_DIR$/.idea/myrestaurant.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/payment_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/payment_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/restaurants_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/restaurants_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="myrestaurant.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/tmp/" />
     <ignored path=".idea/dataSources.local.xml" />
-    <file path="/Dummy.txt" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1451563539802" ignored="false" />
+    <file path="/Dummy.txt" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1456724586260" ignored="false" />
     <file path="F:/rails/mongodbexample/Gemfile" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449465569459" ignored="false" />
-    <file path="/index.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1451565840946" ignored="false" />
+    <file path="/index.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454583064408" ignored="false" />
     <file path="/app.css" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449565856732" ignored="false" />
     <file path="/list.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449729745114" ignored="false" />
     <file path="/a.dummy" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449578351899" ignored="false" />
-    <file path="/application_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449574434812" ignored="false" />
+    <file path="/application_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453527531027" ignored="false" />
     <file path="/_header.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449577520022" ignored="false" />
     <file path="/application.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449574611134" ignored="false" />
     <file path="/owner.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449577646828" ignored="false" />
@@ -43,21 +57,96 @@
     <file path="/restaurant.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449652988266" ignored="false" />
     <file path="/like.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449578231041" ignored="false" />
     <file path="/_menu.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449578431440" ignored="false" />
-    <file path="/routes.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449578649217" ignored="false" />
+    <file path="/routes.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454502590954" ignored="false" />
     <file path="/likers_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449645107969" ignored="false" />
     <file path="/20151209050931_add_user_id_to_like.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449637826693" ignored="false" />
     <file path="/likers_helper.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449644925543" ignored="false" />
     <file path="/20151209061122_rename_is_like_to_is_like_in_like.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449641506382" ignored="false" />
-    <file path="/restaurants_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1451564690887" ignored="false" />
+    <file path="/restaurants_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454432150471" ignored="false" />
     <file path="/_cuisine_name_filter.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449661621306" ignored="false" />
     <file path="/_filter_header.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449727984030" ignored="false" />
     <file path="/cuisine_types_helper.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449662651948" ignored="false" />
     <file path="/_r_menu.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449662934916" ignored="false" />
     <file path="/_area_name_filter.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1449729233754" ignored="false" />
-    <file path="/payment_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1451565251498" ignored="false" />
+    <file path="/payment_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453189895152" ignored="false" />
     <file path="/application_helper.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1451565753183" ignored="false" />
-    <file path="/_social_media_login.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1451635753709" ignored="false" />
-    <file path="/database.yml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1451644071961" ignored="false" />
+    <file path="/_social_media_login.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453462152940" ignored="false" />
+    <file path="/database.yml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454499528716" ignored="false" />
+    <file path="/production.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453877602032" ignored="false" />
+    <file path="/Gemfile" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454474830098" ignored="false" />
+    <file path="/seeds.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454493465788" ignored="false" />
+    <file path="/user.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454496317149" ignored="false" />
+    <file path="/devise.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1452688635938" ignored="false" />
+    <file path="/omniauth_callbacks_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453462113590" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/app/controllers/application_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453527578417" ignored="false" />
+    <file path="/*.regexp" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1452234982328" ignored="false" />
+    <file path="/_admin_menu.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453551388090" ignored="false" />
+    <file path="/users_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454496140021" ignored="false" />
+    <file path="/my_namespace.rake" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1452228398007" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/config/application.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1452233598166" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/app/controllers/projects_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454580926756" ignored="false" />
+    <file path="/projects_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454580644919" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/Gemfile" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1452239745562" ignored="false" />
+    <file path="/registrations_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1452601421241" ignored="false" />
+    <file path="/customer_dashboard_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453113502354" ignored="false" />
+    <file path="/customers_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453117656378" ignored="false" />
+    <file path="/profile.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453118733494" ignored="false" />
+    <file path="/_user_edit_modal.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453208158780" ignored="false" />
+    <file path="/20160119122852_create_contacts.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453206747338" ignored="false" />
+    <file path="/contact.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453206954587" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/app/views/projects/_index_map.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453266399754" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/app/views/projects/index.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454583127085" ignored="false" />
+    <file path="F:/rails/s3_uploader_example-master/s3_uploader_example-master/Gemfile" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453289999105" ignored="false" />
+    <file path="/uploads_helper.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453380194579" ignored="false" />
+    <file path="/uploads_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453378085564" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/app/views/application/_au_header.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453367929129" ignored="false" />
+    <file path="/show.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453528015644" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/config/environments/production.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454048810416" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/config/database.yml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453527093748" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/config/environments/development.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453527807691" ignored="false" />
+    <file path="/development.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453527640616" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/app/views/projects/show.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453528420184" ignored="false" />
+    <file path="/new.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453551432546" ignored="false" />
+    <file path="/_form.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453552978749" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/app/mailers/user_mailer.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454048856248" ignored="false" />
+    <file path="/user_mailer.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1453877449971" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/log/production.log" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454048363866" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/config/routes.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454310107181" ignored="false" />
+    <file path="/assign_staff.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454496307078" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/config/database.yml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454499534759" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/Gemfile" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454499579901" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/assets/stylesheets/application.css" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454502712786" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/assets/javascripts/application.js" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454502684695" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/config/routes.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454502591284" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/views/admin/home/index.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454518216688" ignored="false" />
+    <file path="/application.css" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454503318033" ignored="false" />
+    <file path="/application.js" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454501986130" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/assets/javascripts/admin/application.js" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454502391807" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/assets/stylesheets/admin/application.css" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454503320353" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/views/layouts/application.html.erb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454502779163" ignored="false" />
+    <file path="/application.html.erb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454502766179" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/views/home/index.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454502729113" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/controllers/admin/home_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454503034547" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/controllers/admin_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454503060450" ignored="false" />
+    <file path="/admin_controller.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454503060072" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/views/layouts/admin.html.erb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454503368926" ignored="false" />
+    <file path="/admin.html.erb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454503366096" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/views/admin/components/footer.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454503415292" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/views/admin/components/top_menu.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454503518283" ignored="false" />
+    <file path="F:/rails/bookmyrestaurant/app/views/admin/components/left_menu.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454556235734" ignored="false" />
+    <file path="/left_menu.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454556227087" ignored="false" />
+    <file path="/terms_of_use.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454566492654" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/app/views/application/terms_of_use.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454566493093" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/app/views/application/_new_terms_of_use.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454567436914" ignored="false" />
+    <file path="/_new_terms_of_use.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454567432163" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/app/views/application/download_disclosure.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454569386443" ignored="false" />
+    <file path="/download_disclosure.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454569386444" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/app/helpers/projects_helper.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454582478830" ignored="false" />
+    <file path="/projects_helper.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454582478830" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/lib/search.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454583094316" ignored="false" />
+    <file path="/search.rb" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454582850482" ignored="false" />
+    <file path="D:/DOE/23-12/energystorageexchange/app/views/projects/_list_grid.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454584177863" ignored="false" />
+    <file path="/_list_grid.html.haml" changelist="c391df70-728a-4f9a-aed2-b6eb6385a409" time="1454584177432" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,14 +156,14 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/myrestaurant@db_the_role_admin.coverage" NAME="db:the_role:admin Coverage Results" MODIFIED="1446628179791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/myrestaurant@db_drop.coverage" NAME="db:drop Coverage Results" MODIFIED="1446628000522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myrestaurant@db_create__myrestaurant.coverage" NAME="db:create: myrestaurant Coverage Results" MODIFIED="1448271420576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/myrestaurant@db_drop.coverage" NAME="db:drop Coverage Results" MODIFIED="1446628000522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myrestaurant@Development__myrestaurant.coverage" NAME="Development: myrestaurant Coverage Results" MODIFIED="1449146364220" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myrestaurant@Rails_console__myrestaurant.coverage" NAME="Rails console: myrestaurant Coverage Results" MODIFIED="1448021776747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myrestaurant@db_migrate__myrestaurant.coverage" NAME="db:migrate: myrestaurant Coverage Results" MODIFIED="1448284886484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myrestaurant@db_setup__myrestaurant.coverage" NAME="db:setup: myrestaurant Coverage Results" MODIFIED="1448271490384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/myrestaurant@routes__myrestaurant.coverage" NAME="routes: myrestaurant Coverage Results" MODIFIED="1448282474779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myrestaurant@test_all__myrestaurant.coverage" NAME="test:all: myrestaurant Coverage Results" MODIFIED="1448271520664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/myrestaurant@routes__myrestaurant.coverage" NAME="routes: myrestaurant Coverage Results" MODIFIED="1448282474779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -87,17 +176,7 @@
     <favorites_list name="myrestaurant" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="database.yml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/database.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="3" selection-start="128" selection-end="128" vertical-scroll-proportion="0.28132388">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -119,22 +198,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/helpers/likers_helper.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/likers_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/restaurant.rb" />
-        <option value="$PROJECT_DIR$/app/views/components/_cuisine_name_filter.html.haml" />
-        <option value="$PROJECT_DIR$/app/helpers/cuisine_types_helper.rb" />
-        <option value="$PROJECT_DIR$/app/views/menu_components/_r_menu.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/components/_area_name_filter.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/components/_filter_header.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/restaurants/list.html.haml" />
-        <option value="$PROJECT_DIR$/app/controllers/restaurants_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/payment_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/carts/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-        <option value="$PROJECT_DIR$/app/views/restaurants/index.html.haml" />
+        <option value="$PROJECT_DIR$/config/initializers/omniauth.rb" />
+        <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/omniauth_callbacks_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/components/_social_media_login.html.haml" />
-        <option value="$PROJECT_DIR$/config/database.yml" />
+        <option value="$PROJECT_DIR$/app/views/users/show.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/users/new.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/users/_form.html.haml" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/restaurants_controller.rb" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
+        <option value="$PROJECT_DIR$/app/views/components/_admin_menu.html.haml" />
+        <option value="$PROJECT_DIR$/app/models/assign_staff.rb" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/restaurants/_form.html.haml" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -218,6 +297,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myrestaurant" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myrestaurant" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myrestaurant" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myrestaurant" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -227,7 +338,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="D:/DOE/17-8/energystorageexchange" />
+    <property name="last_opened_file_path" value="F:/datamanagement" />
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -235,63 +346,19 @@
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\myrestaurant\app\assets\images" />
+      <recent name="F:\myrestaurant" />
       <recent name="F:\myrestaurant\app\assets\javascripts" />
-      <recent name="F:\myrestaurant\app\assets\stylesheets" />
-      <recent name="F:\myrestaurant\public\fonts" />
-      <recent name="F:\myrestaurant\public" />
+      <recent name="F:\myrestaurant\app\views" />
+      <recent name="F:\myrestaurant\app\helpers" />
+      <recent name="F:\myrestaurant\app\controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="Rake.assets:precompile">
-    <configuration default="false" name="db:migrate: myrestaurant" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
-      <module name="myrestaurant" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs>
-        <env name="RAILS_ENV" value="development" />
-      </envs>
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="db:migrate" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="test:all" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
-      <module name="myrestaurant" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="test:all" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE=":test_unit " />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <RunnerSettings RunnerId="RubyRunner" />
-      <ConfigurationWrapper RunnerId="RubyRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Rails.Development: myrestaurant">
     <configuration default="false" name="db:migrate" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="myrestaurant" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -316,28 +383,6 @@
       <ConfigurationWrapper RunnerId="RubyRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="routes" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
-      <module name="myrestaurant" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="routes" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <RunnerSettings RunnerId="RubyRunner" />
-      <ConfigurationWrapper RunnerId="RubyRunner" />
-      <method />
-    </configuration>
     <configuration default="false" name="assets:precompile" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="myrestaurant" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -351,6 +396,74 @@
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="assets:precompile" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="assets:clean[keep]" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
+      <module name="myrestaurant" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="assets:clean" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="db:the_role:admin" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
+      <module name="myrestaurant" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs>
+        <env name="RAILS_ENV" value="production" />
+      </envs>
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="db:the_role:admin" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="routes" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
+      <module name="myrestaurant" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="routes" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
@@ -483,6 +596,13 @@
       <IRB_RUN_CONFIG NAME="IS_RAILS_CONSOLE" VALUE="false" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
       <predefined_log_file id="RUBY_CUCUMBER" enabled="true" />
       <module name="" />
@@ -512,37 +632,45 @@
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="SETTINGS_VERSION" VALUE="2" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
-      <JSRemoteDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSRemoteDebuggerConfigurationSettings>
-      <method />
-    </configuration>
     <list size="9">
       <item index="0" class="java.lang.String" itemvalue="Rake.test" />
       <item index="1" class="java.lang.String" itemvalue="Rake.spec" />
       <item index="2" class="java.lang.String" itemvalue="Rails.Production: myrestaurant" />
       <item index="3" class="java.lang.String" itemvalue="Rails.Development: myrestaurant" />
-      <item index="4" class="java.lang.String" itemvalue="Rake.db:migrate: myrestaurant" />
-      <item index="5" class="java.lang.String" itemvalue="Rake.test:all" />
-      <item index="6" class="java.lang.String" itemvalue="Rake.db:migrate" />
-      <item index="7" class="java.lang.String" itemvalue="Rake.routes" />
-      <item index="8" class="java.lang.String" itemvalue="Rake.assets:precompile" />
+      <item index="4" class="java.lang.String" itemvalue="Rake.db:migrate" />
+      <item index="5" class="java.lang.String" itemvalue="Rake.assets:precompile" />
+      <item index="6" class="java.lang.String" itemvalue="Rake.assets:clean[keep]" />
+      <item index="7" class="java.lang.String" itemvalue="Rake.db:the_role:admin" />
+      <item index="8" class="java.lang.String" itemvalue="Rake.routes" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Rake.assets:precompile" />
+        <item index="0" class="java.lang.String" itemvalue="Rake.routes" />
         <item index="1" class="java.lang.String" itemvalue="Rake.db:migrate" />
-        <item index="2" class="java.lang.String" itemvalue="Rake.routes" />
-        <item index="3" class="java.lang.String" itemvalue="Rake.test:all" />
-        <item index="4" class="java.lang.String" itemvalue="Rake.db:migrate: myrestaurant" />
+        <item index="2" class="java.lang.String" itemvalue="Rake.db:the_role:admin" />
+        <item index="3" class="java.lang.String" itemvalue="Rake.assets:precompile" />
+        <item index="4" class="java.lang.String" itemvalue="Rake.assets:clean[keep]" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration">
-    <configuration />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -566,26 +694,46 @@
       <configuration name="test:all: myrestaurant" configurationId="RakeRunConfigurationType" />
     </history-entry>
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32784185" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22272727" sideWeight="0.7397035" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24924242" sideWeight="0.63261944" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25530303" sideWeight="0.6721582" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26029655" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.354201" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32784185" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -660,110 +808,90 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/components/_area_name_filter.html.haml">
+    <entry file="file://$PROJECT_DIR$/app/controllers/customers_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="68" selection-start="276" selection-end="276" vertical-scroll-proportion="-1.5769231" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/components/_filter_header.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="29" selection-start="408" selection-end="408" vertical-scroll-proportion="0.545961" />
-      </provider>
-    </entry>
-    <entry file="file://C:/Ruby200/lib/ruby/gems/2.0.0/gems/the_role_api-3.0.3/app/controllers/concerns/the_role/controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="8" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0880829">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/restaurants_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="53" selection-start="175" selection-end="220" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="30" column="16" selection-start="526" selection-end="538" vertical-scroll-proportion="0.7592068" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="23" selection-start="44" selection-end="63" vertical-scroll-proportion="0.0880829">
+        <state line="24" column="2" selection-start="545" selection-end="545" vertical-scroll-proportion="0.41348973">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/carts/index.html.haml">
+    <entry file="file://$PROJECT_DIR$/app/controllers/uploads_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="70" selection-start="3807" selection-end="3807" vertical-scroll-proportion="0.5619597">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/tables_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6475409" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Ruby200/lib/ruby/gems/2.0.0/gems/google-api-client-0.9.1/lib/google/apis.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Ruby200/lib/ruby/gems/2.0.0/gems/google-api-client-0.9.1/lib/google/api_client/auth/installed_app.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="35" selection-start="0" selection-end="4215" vertical-scroll-proportion="0.90710384" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/rake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/restaurants_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="4" selection-start="282" selection-end="282" vertical-scroll-proportion="0.41576087" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="133" selection-start="476" selection-end="488" vertical-scroll-proportion="0.32336956" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/assign_staff.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="18" selection-start="57" selection-end="57" vertical-scroll-proportion="0.04644809" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="25" selection-start="401" selection-end="414" vertical-scroll-proportion="0.55737704" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="51" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/restaurants/_form.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="60" selection-start="1646" selection-end="1646" vertical-scroll-proportion="0.5882353" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/components/_admin_menu.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="66" selection-start="1151" selection-end="1151" vertical-scroll-proportion="0.030630631">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/payment_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/uploads/index.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="47" selection-start="95" selection-end="95" vertical-scroll-proportion="0.04404145">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/restaurants/list.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="6" selection-start="467" selection-end="467" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="10" selection-start="381" selection-end="501" vertical-scroll-proportion="1.0385852">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="15" selection-start="32" selection-end="41" vertical-scroll-proportion="0.10932476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/restaurants/index.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="39" selection-start="427" selection-end="427" vertical-scroll-proportion="0.7754386">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="37" selection-start="196" selection-end="196" vertical-scroll-proportion="0.321513">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/components/_social_media_login.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="25" selection-start="36" selection-end="36" vertical-scroll-proportion="0.042821158">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/devise/sessions/new.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="49" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.74307305">
+        <state line="19" column="37" selection-start="890" selection-end="890" vertical-scroll-proportion="0.58198196">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.0118203">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="3" selection-start="128" selection-end="128" vertical-scroll-proportion="0.28132388">
+        <state line="53" column="3" selection-start="1416" selection-end="1416" vertical-scroll-proportion="0.9836066">
           <folding />
         </state>
       </provider>

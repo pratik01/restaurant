@@ -1,0 +1,19 @@
+.content
+  .col-md-3
+    %img{:src=>"http://mpcaonline.com/membersImage/no_photo.jpg",:style=>"height:210px;width:100%;",:class=>"thumbnail"}
+  .col-md-9
+    %table.table
+      %tr
+        %td Name
+        %td
+          =@user.first_name
+          =@user.last_name
+      %tr
+        %td Email
+        %td=@user.email
+      %tr
+        %td Contact 1
+        %td=@user.contact1
+      %tr
+        %td Contact 2
+        %td=@user.contact2

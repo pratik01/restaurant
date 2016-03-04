@@ -4,15 +4,50 @@
     .modal-content
       .modal-header
         %button.close{"data-dismiss" => "modal", :type => "button"} &times;
-        %h4.modal-title Edit Customer information
+        %h4.modal-title#title_cust_info Edit Customer information
       .modal-body
-        %form
-          =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"First Name",:c=>"form-control",:id=>"firstName"}
-          =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Last Name",:c=>"form-control",:id=>"lastName"}
-          =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Contact 1",:c=>"form-control",:id=>"contact1"}
-          =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Contact 2",:c=>"form-control",:id=>"contact2"}
-          =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Email",:c=>"form-control",:id=>"email"}
+        %form#cust_info_frm
+          .row
+            .col-md-6
+              =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"First Name",:c=>"form-control",:id=>"firstName"}
+            .col-md-6
+              =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Last Name",:c=>"form-control",:id=>"lastName"}
+            .col-md-6
+              =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Contact 1",:c=>"form-control",:id=>"contact1"}
+            .col-md-6
+              =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Contact 2",:c=>"form-control",:id=>"contact2"}
+            .col-md-12
+              =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Email",:c=>"form-control",:id=>"email"}
+            .col-md-6
+              =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Address 1",:c=>"form-control",:id=>"address1"}
+            .col-md-6
+              =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Address 2",:c=>"form-control",:id=>"address2"}
+            .col-md-6
+              .form-group
+                %label Country
+                %select{:name=>"country",:id=>"country",:class=>"form-control"}
+            .col-md-6
+              .form-group
+                %label State
+                %select{:name=>"state",:id=>"state",:class=>"form-control"}
+            .col-md-6
+              =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"City",:c=>"form-control",:id=>"city"}
+            .col-md-6
+              =render :partial => "components/simple_text_box_with_label",:locals => {:txtLabel=>"Zip Code",:c=>"form-control",:id=>"zip_code"}
       .modal-footer
-        %button.btn-primary{"data-dismiss" => "modal", :type => "button",:id=>"update_cust_info"} Update
+        %button.btn-primary{"data-dismiss" => "modal", :type => "button",:id=>"update_cust_info"} Save
         %button.btn-default{"data-dismiss" => "modal", :type => "button"} Close
 :javascript
+  $("#update_cust_info").click(function(){
+     var cart = $.cookie("cart");
+     cart = jQuery.parseJSON(cart);
+     console.log(cart);
+     var user_data = cart.user;
+     user_data.firstName = $("#firstName").val();
+     user_data.lastName = $("#lastName").val();
+     user_data.contact1 = $("#contact1").val();
+     user_data.contact2 = $("#contact2").val();
+     user_data.email = $("#email").val();
+     $.cookie("cart",JSON.stringify(cart),{path:"/"});
+     orderSummary();
+  });

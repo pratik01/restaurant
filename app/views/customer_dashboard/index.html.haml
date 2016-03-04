@@ -1,0 +1,136 @@
+:css
+
+  /*  bhoechie tab */
+  div.bhoechie-tab-container{
+    z-index: 10;
+    background-color: #ffffff;
+    padding: 0 !important;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    border:1px solid #ddd;
+    margin-top: 20px;
+
+    -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-clip: padding-box;
+    opacity: 0.97;
+    filter: alpha(opacity=97);
+  }
+  div.bhoechie-tab-menu{
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+  div.bhoechie-tab-menu div.list-group{
+    margin-bottom: 0;
+  }
+  div.bhoechie-tab-menu div.list-group>a{
+    margin-bottom: 0;
+  }
+  div.bhoechie-tab-menu div.list-group>a .glyphicon,
+  div.bhoechie-tab-menu div.list-group>a .fa {
+    color: #5A55A3;
+  }
+  div.bhoechie-tab-menu div.list-group>a:first-child{
+    border-top-right-radius: 0;
+    -moz-border-top-right-radius: 0;
+  }
+  div.bhoechie-tab-menu div.list-group>a:last-child{
+    border-bottom-right-radius: 0;
+    -moz-border-bottom-right-radius: 0;
+  }
+  div.bhoechie-tab-menu div.list-group>a.active,
+  div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+  div.bhoechie-tab-menu div.list-group>a.active .fa{
+    background-color: #4d5b76;
+    background-image: #5A55A3;
+    color: #ffffff;
+  }
+  div.bhoechie-tab-menu div.list-group>a.active:after{
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    margin-top: -13px;
+    border-left: 0;
+    border-bottom: 13px solid transparent;
+    border-top: 13px solid transparent;
+    border-left: 10px solid #4d5b76;
+
+  }
+
+  div.bhoechie-tab-content{
+    background-color: #ffffff;
+    /* border: 1px solid #eeeeee; */
+    padding-left: 20px;
+    padding-top: 10px;
+  }
+
+  div.bhoechie-tab div.bhoechie-tab-content:not(.active){
+    display: none;
+  }
+.container
+  .row
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12.bhoechie-tab-container
+      .col-lg-2.col-md-2.col-sm-2.col-xs-2.bhoechie-tab-menu
+        .list-group
+          %a.list-group-item.active.text-center{:href => "#"}
+            %h4.glyphicon.glyphicon-user
+            = succeed "Profile" do
+              %br/
+          %a.list-group-item.text-center{:href => "#"}
+            %h4.glyphicon.glyphicon-road
+            = succeed "Address" do
+              %br/
+          %a.list-group-item.text-center{:href => "#"}
+            %h4.glyphicon.glyphicon-tag
+            = succeed "Booking History" do
+              %br/
+          %a.list-group-item.text-center{:href => "#"}
+            %h4.glyphicon.glyphicon-cutlery
+            = succeed "Restaurant" do
+              %br/
+          %a.list-group-item.text-center{:href => "#"}
+            %h4.glyphicon.glyphicon-credit-card
+            = succeed "Credit" do
+              %br/
+            Card
+      .col-lg-10.col-md-10.col-sm-10.col-xs-10.bhoechie-tab
+        / flight section
+        .bhoechie-tab-content.active
+          %center
+            %h1.glyphicon.glyphicon-plane{:style => "font-size:14em;"}
+            %h2{:style => "margin-top: 0;color:#55518a"} Cooming Soon
+            %h3{:style => "margin-top: 0;color:#55518a"} Flight Reservation
+        / train section
+        .bhoechie-tab-content
+          %center
+            %h1.glyphicon.glyphicon-road{:style => "font-size:12em;"}
+            %h2{:style => "margin-top: 0;"} Cooming Soon
+            %h3{:style => "margin-top: 0;"} Train Reservation
+        / hotel search
+        .bhoechie-tab-content
+          %center
+            %h1.glyphicon.glyphicon-home{:style => "font-size:12em;"}
+            %h2{:style => "margin-top: 0;"} Cooming Soon
+            %h3{:style => "margin-top: 0;"} Hotel Directory
+        .bhoechie-tab-content
+          %center
+            %h1.glyphicon.glyphicon-cutlery{:style => "font-size:12em;color:#55518a"}
+            %h2{:style => "margin-top: 0;color:#55518a"} Cooming Soon
+            %h3{:style => "margin-top: 0;color:#55518a"} Restaurant Diirectory
+        .bhoechie-tab-content
+          %center
+            %h1.glyphicon.glyphicon-credit-card{:style => "font-size:12em;color:#55518a"}
+            %h2{:style => "margin-top: 0;color:#55518a"} Cooming Soon
+            %h3{:style => "margin-top: 0;color:#55518a"} Credit Card
+:javascript
+  $(document).ready(function() {
+      $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+          e.preventDefault();
+          $(this).siblings('a.active').removeClass("active");
+          $(this).addClass("active");
+          var index = $(this).index();
+          $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+          $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+      });
+  });
