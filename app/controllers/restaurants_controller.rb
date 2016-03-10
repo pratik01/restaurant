@@ -1,4 +1,3 @@
-
 class RestaurantsController < ApplicationController
 
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
@@ -83,7 +82,7 @@ class RestaurantsController < ApplicationController
 
   private
     def set_restaurant
-      @restaurant = Restaurant.includes(:ameniti).find(params[:id])
+      @restaurant = Restaurant.all
     end
 
     def restaurant_params

@@ -24,11 +24,16 @@ Myrestaurant::Application.routes.draw do
   end
 
 
-  resources :restaurants, param: :name
+  resources :restaurants do
+    collection do
+      get "list"
+      get 'restaurant_profile'
+    end
+  end
   resources :items
   resources :book_tables
-  get "restaurants/list"
-  get "restaurants/restaurant_profile"
+
+
   resources :carts
   resources :customers do
     collection do
